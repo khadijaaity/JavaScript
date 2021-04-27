@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="author" content="khadija ait" />
+		<title>JS10 DATES ex01</title>
+		<link rel="stylesheet" type="text/css" href="hoja_estilos.css"/>
+	</head>
+
+	<body>
+	
+	<script type="text/javascript">
+
+		var fecha = new Date();
+		var dias = ['domindo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+		var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+		document.write('<ul>');
+
+			/*Métodos getters*/
+			document.write('<li> Hoy es: '+dias[fecha.getDay()]+' '+fecha.getDate()+' de '+meses[fecha.getMonth()]+'</li>');
+
+			document.write('<li> Minutos de diferencia entre el tiempo UTF y local es: '+fecha.getTimezoneOffset()+'</li>');
+
+			document.write('<li> Dia del mes UTF: '+ fecha.getUTCDate()+ '</li>');
+
+			document.write('<li> Mes UTF: '+ meses[fecha.getUTCMonth()]+ '</li>');
+
+			document.write('<li> Año UTF: '+ fecha.getUTCFullYear()+ '</li>');
+
+			/*Métodos setters*/
+
+			fecha.setDate(fecha.getDate()+14);
+
+			document.write('<li> Dentro de dos semanas será: '+dias[fecha.getDay()]+' '+fecha.getDate()+' de '+meses[fecha.getMonth()]+'</li>');
+
+			document.write('<li> Fecha y hora desde 1/1/1970: '+ fecha.setTime(1332403882588)+ '</li>');
+
+			document.write('<li> Hora como cadena de texto : '+ fecha.toLocaleTimeString()+ '</li>');
+
+			document.write('<li> Fecha como cadena de texto : '+ fecha.toLocaleDateString()+ '</li>');	
+
+		document.write('</ul>');
+	</script>
+		
+	</body>
+</html>

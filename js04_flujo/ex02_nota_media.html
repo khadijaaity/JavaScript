@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS04 Exercici 2</title>
+		<style type="text/css">
+
+			:root{
+				font-family: cambria;
+			}
+
+			body{
+				margin: 5%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 110px;
+				margin-bottom: 5px;
+			}
+
+			output{
+				margin-top: 3%;
+				margin-left: 5%;
+				color: #00f;
+				font-weight: bold;
+				font-size: 2em;
+				
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<h2>Calculador de IVA</h2>
+
+		<label>Nota 1:</label>
+		<input type="number" min="0" id="nota1"/><br/>
+
+		<label>Nota 2:</label>
+		<input type="number" min="0" id="nota2"/><br/>
+
+		<label>Nota 3:</label>
+		<input type="number" min="0" id="nota3"/><br/>
+
+		
+		<button type="button" onclick="calcular();">Calcular</button><br/>
+
+		<hr/><br/>
+		<output id="resultado"></output>
+		
+		<script>
+
+			function calcular(){	
+
+				//leer las notas introducidos por el usuario			
+				var n1 = parseFloat(document.getElementById('nota1').value);
+				var n2 = parseFloat(document.getElementById('nota2').value);
+				var n3 = parseFloat(document.getElementById('nota3').value);
+		
+				//realizar los cálculos
+				var prom = (n1+n2+n3)/3;
+
+				//mostrar el resultado
+				if (prom>=5) {
+					document.getElementById('resultado').innerHTML = 'Aprobado';
+				}else{
+					document.getElementById('resultado').innerHTML = 'Suspendido';
+				}
+
+				/*document.getElementById('resultado').innerHTML = prom.toFixed(2);*/
+				
+			}
+
+		</script>
+	</body>
+</html>

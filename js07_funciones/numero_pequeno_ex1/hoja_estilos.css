@@ -1,0 +1,41 @@
+div{
+	height: 100px;
+	width: 100px;
+	border: 2px solid grey;
+	margin: 10px;
+}
+
+:root{
+	font-family: cambria;
+}
+
+section{
+	margin: 5%;
+
+}
+
+input{
+	padding: 2%;
+	margin-bottom: 2%;
+	border: 1px solid grey;
+	border-radius: 5px;
+	text-align: center;
+}
+
+button{
+	margin-top: 2%;
+	padding: 2% 3%;
+	background-color: #000;
+	color: #fff;
+	font-weight: bolder;
+	border-radius: 5px;
+}
+
+label{
+	display: inline-block;
+	min-width: 100px;
+	margin-top: 1%;
+}
+
+
+			

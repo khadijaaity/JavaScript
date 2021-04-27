@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS03 Exercici 7</title>
+		<style type="text/css">
+			button,label{
+				margin-top: 1%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 150px;
+			}
+
+			output{
+				margin-top: 3%;
+				margin-left: 5%;
+				color: #00f;
+				font-weight: bold;
+				font-size: 2em;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h2>Calcular el precio del envío de un paquete</h2>
+
+		<label>Largo del paquete:</label>
+		<input type="number" id="largo"/><span> cm</span><br/>
+
+		<label>Ancho del paquete:</label>
+		<input type="number" id="ancho"/><span> cm</span><br/>
+
+		<label>Alto del paquete:</label>
+		<input type="number" id="alto"/><span> cm</span><br/>
+
+		<label>Peso del paquete:</label>
+		<input type="number" id="peso"/><span> g</span><br/>
+		
+		<button onclick="calcular();">Calcular</button>
+
+		<hr/>
+		<p>Resultado: <output id="resultado"></output></p>
+		
+		
+		<script>
+
+			function calcular(){
+				var l = parseFloat(document.getElementById('largo').value);
+
+				var a = parseFloat(document.getElementById('ancho').value);
+
+				var h = parseFloat(document.getElementById('alto').value);
+
+				var p = parseFloat(document.getElementById('peso').value);
+
+
+	
+				var precio_inicial = 2 + (l*a*h*0.005);
+
+				var precio_final = precio_inicial + ((p*0.1)/100);
+
+				resultado.innerHTML = precio_final +' €';
+			}
+
+		</script>
+
+		<p>¿Cuánto cuesta un envío de 10x5x10cms y 2kg depeso? = 6,5€</p>
+		<p>¿Cuánto cuesta un envío de 100x20x10cms y 20kg depeso? = 122€</p>
+		
+	</body>
+</html>

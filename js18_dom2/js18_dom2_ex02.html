@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>js18 DOM2 ex02</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			button{
+				margin: 10px auto;
+				display: block;
+				padding: 1%;
+			}	
+		</style>
+
+	<body>
+		
+		<button onclick="crear();">cambiar</button>
+		
+		<script type="text/javascript">
+
+			function crear(){
+
+				var crearseccion = document.createElement('section');
+				document.body.appendChild(crearseccion);
+
+				var crearFigura = document.createElement('figure');
+				crearFigura.setAttribute('class','foto');
+
+				var imagen = document.createElement('img');
+				imagen.setAttribute('src', "https://miracomosehace.com/wp-content/uploads/2020/03/fotografia-naturaleza-HD.jpg");
+				
+				crearFigura.appendChild(imagen);	
+
+				var titulo = document.createElement('figcaption');
+				titulo.textContent = 'Bienvenido a Mi Página Web';
+				titulo.style.color = 'blue';	
+				
+
+				crearFigura.appendChild(titulo);
+
+				crearseccion.appendChild(crearFigura);
+				crearseccion.style.textAlign = "center";
+			}
+		</script>
+	</body>
+</html>

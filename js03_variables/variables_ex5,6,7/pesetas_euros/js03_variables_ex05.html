@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS03 Exercici 5</title>
+		<style type="text/css">
+			button,label{
+				margin-top: 1%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 100px;
+			}
+
+			output{
+				margin-top: 3%;
+				margin-left: 5%;
+				color: #00f;
+				font-weight: bold;
+				font-size: 2em;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h2>convertidor de pesetas a euros y  viceversa</h2>
+
+		<label>Inserta la moneda a convertir:</label>
+		<input type="number" id="numero"/><br/>
+		
+		<button onclick="euro();">Pesetas a euros</button>
+
+		<button onclick="peseta();">Euros a pesetas</button>
+
+		<hr/>
+		<p>Resultado: <output id="resultado"></output></p>
+		
+		
+
+		<script>
+			function euro(){
+				var p = parseFloat(document.getElementById('numero').value);
+				
+				var resultado_euros = p / 166.386;
+
+				resultado.innerHTML = resultado_euros.toFixed(2)+' €';
+			}
+
+			function peseta(){
+				var e = parseFloat(document.getElementById('numero').value);
+			
+				var resultado_pesetas = e * 166.386;
+				
+				resultado.innerHTML = resultado_pesetas.toFixed(2)+' Pts';
+			}
+
+		</script>
+		
+	</body>
+</html>

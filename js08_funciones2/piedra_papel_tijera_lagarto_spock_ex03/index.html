@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS08 exercici 3</title>
+		<link rel="stylesheet" type="text/css" href="estilos.css">
+	</head>
+
+	<body>
+		<header>
+			<h1>Piedra, Papel, Tijera, Lagarto o Spock</h1>
+			<figure >
+				<img src="img/header.jpg" alt="juego" title="juego"/>
+			</figure>
+		</header>
+
+		<main>	
+			<section>
+				<span>Partidas:<br><output id="out_partidas">0</output></span>
+				<span>Ganadas:<br><output id="out_ganadas">0</output></span>
+				<span>Perdidas:<br><output id="out_pertidas">0</output></span>
+				<span>Empatadas:<br><output id="out_empatadas">0</output></span>
+			</section>
+
+			<section>		
+				
+				<figure>
+					<figcaption>Jugador</figcaption>
+					<img src="img/nada.png" alt="nada" title="nada" id="imgJugador" />
+				</figure>
+
+				<figure >
+					<figcaption>CPU</figcaption>
+					<img src="img/nada.png" alt="nada" title="nada" id="imgCRU" />
+				</figure><br/>
+
+				<h3>Selecciona tirada</h3>
+
+				<figure>
+					<img src="img/piedra.jpg" alt="piedra" title="piedra" id="piedra"  onclick="tirada('piedra');" />
+				</figure>
+
+				<figure>
+					<img src="img/papel.jpg" alt="papel" title="papel" id="papel" onclick="tirada('papel');" />
+				</figure>
+
+				<figure>
+					<img src="img/tijera.jpg" alt="tijera" title="tijera" id="tijera"  onclick="tirada('tijera');" />
+				</figure><br/>
+
+				<figure>
+					<img src="img/lagarto.jpg" alt="lagarto" title="lagarto" id="lagarto"  onclick="tirada('lagarto');" />
+				</figure><br/>
+
+				<figure>
+					<img src="img/spock.jpg" alt="spock" title="spock" id="spock"  onclick="tirada('spock');" />
+				</figure><br/>
+			</section>
+
+			<section>
+				<span>Porcentaje:</span><output id="porcentaje">0%</output>
+				<output id="resultado">Resultado</output>
+				<button onclick="reiniciar();">Reiniciar</button>
+			</section>
+		</main>
+
+		<script type="text/javascript" src="funciones.js"></script>
+	</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS07 exercici 5</title>
+		<style type="text/css">
+			img{
+				width: 50px;
+				height: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<h1>Cambiar Tamaños de Imágenes </h1>
+
+			<label>Escalar</label>
+			<input type="number" id="escala"/><br/><br/>
+
+			<img src="foto1.jpg" title="foto1" alt="foto1" onclick="escalar(this,e);"/>
+
+			<img src="foto2.jpg" title="foto2" alt="foto2" onclick="escalar(this,e);"/><br/>
+
+			
+		</section>
+		
+		<script type="text/javascript">
+			function escalar(imagen,e){
+				imagen.style.height = (imagen.height*e)+'px';
+				imagen.style.width = (imagen.width*e)+'px';
+			
+
+		}
+		</script>
+	
+	</body>
+</html>
+

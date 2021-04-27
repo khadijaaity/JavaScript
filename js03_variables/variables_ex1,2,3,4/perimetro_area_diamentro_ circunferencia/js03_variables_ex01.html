@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS03 Exercici 1</title>
+		<style type="text/css">
+			button{
+				margin-top: 1%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h2>Calcular el perímetro, el área y el diámentro de una circunferencia</h2>
+
+		<label>Radio:</label>
+		<input type="number" id="radio"/><br/>
+
+		<button onclick="perimetro();">Perímetro</button>
+		
+		<button onclick="area();">Área</button>
+
+		<button onclick="diametro();">Diámetro</button>
+		
+		<script>
+			function perimetro(){
+				var r = parseFloat(document.getElementById('radio').value);
+				
+
+				var resultado = 2*Math.PI*r;
+
+				alert('El perímetro es: '+resultado);
+			}
+
+			function area(){
+				var r = parseFloat(document.getElementById('radio').value);
+				
+
+				var resultado = Math.PI*Math.pow(r, 2);
+
+				alert('El área es: '+resultado);
+			}
+
+			function diametro(){
+				var r = parseFloat(document.getElementById('radio').value);
+				
+
+				var resultado = 2*r;
+
+				alert('El diámetro es: '+resultado);
+			}
+
+		</script>
+		
+	</body>
+</html>

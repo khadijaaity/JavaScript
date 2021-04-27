@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS03 Exercici 4</title>
+		<style type="text/css">
+			button{
+				margin-top: 1%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h2>Conversión de kilómetros a millas</h2>
+
+		<label>Kilómetros</label>
+		<input type="number" id="kilometros"/><br/>
+		
+		<button onclick="millas();">Conversión de Km a millas</button>
+		
+		<script>
+			function millas(){
+				var k = parseFloat(document.getElementById('kilometros').value);				
+
+				var resultado = k / 1.60934;
+
+				alert('La conversión a millas es: '+resultado);
+			}
+
+		</script>
+		
+	</body>
+</html>

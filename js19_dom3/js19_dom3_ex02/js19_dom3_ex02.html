@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>js19 DOM3 ex02</title>
+		<style type="text/css">
+			*{
+				font-family: cambria;
+			}
+			figure{
+				width: 20%;
+				display: inline-block;
+			}
+			img{
+				width: 100%;
+			}
+			section{
+				margin: auto;
+				text-align: center;
+			}
+			#grande{
+				position: fixed;
+				text-align: center;
+				width: 100%;
+				height: 100%;
+				top: 0px;
+				left: 0px;
+				background-color: rgba(0,0,0,0.5);
+				margin: 0;	
+			}
+
+			#grande img{
+				width: 30%;
+				margin: 5em auto 5em auto;
+			}
+		</style>
+	<body>
+		<section>
+			<figure >
+				<img src="img/coche1.jpg" alt="coche1" title="coche1" onclick="grande(this.src);"/>
+			</figure>
+
+			<figure >
+				<img src="img/coche2.jpg" alt="coche2" title="coche3" onclick="grande(this.src);"/>
+			</figure>
+
+			<figure >
+				<img src="img/coche3.jpg" alt="coche3" title="coche3" onclick="grande(this.src);"/>
+			</figure>
+		</section>
+		
+		<script type="text/javascript">
+
+			function grande(figura){
+				
+				var figuraGrande = document.createElement('figure');
+				figuraGrande.setAttribute('id','grande');
+	
+				figuraGrande.onclick = function(){
+					this.remove();
+				}
+
+				figuraGrande.appendChild(document.createElement('img'));
+				figuraGrande.firstElementChild.src = figura;
+
+				// var imagen = document.createElement('img');
+				// imagen.setAttribute('src', figura.firstElementChild.src);
+				
+				// figuraGrande.appendChild(imagen);
+				// figuraGrande.appendChild(imagen).style.border = '2px solid #000';
+
+				document.body.appendChild(figuraGrande);
+
+				// document.querySelected('main').appendChild(figuraGrande);
+			}
+		</script>
+		
+	</body>
+</html>

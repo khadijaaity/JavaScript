@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS03 Exercici 3</title>
+		<style type="text/css">
+			button{
+				margin-top: 1%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h2>Conversión de grados Fahrenheit a grados Celsius.</h2>
+
+		<label>Grados Fahrenheit:</label>
+		<input type="number" id="grados_f"/><br/>
+		
+		<button onclick="grados();">Conversión de °F a °C</button>
+		
+		<script>
+			function grados(){
+				var gf = parseFloat(document.getElementById('grados_f').value);
+				
+
+				var resultado = 5 * (gf - 32) / 9;
+
+				alert('La conversión a grados Celsius es: '+resultado.toFixed(2));
+			}
+
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>JS07 Exercici 8</title>
+		<style type="text/css">
+
+			:root{
+				font-family: calibri;
+			}
+
+			body{
+				padding: 20px
+			}
+
+			#lienzo{
+				width: 500px;
+				height: 500px;
+				border: 5px solid #000;
+			
+			}
+
+			div.pixel{
+				height: 5px;
+				width: 5px;
+				float: left;
+			}
+
+			input{
+				padding: 0.3%;
+				background-color: transparent;
+			}
+
+			button{
+				background-color: #fff;
+				padding: 0.5%;
+				margin-left: 1%;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<h1>El CutrePaint</h1>
+		<p>Seleciona un color y pasa el ratón por encima para pintar</p>
+
+		<label>Color:</label>
+		<input type="color" id="incolor" onclick="pintar = false; borrar = false"; />
+
+		<button onclick="borrar = !borrar">Borrar</button>
+
+		<br/><br/>
+
+		<div id="lienzo" onclick="pintar = !pintar">
+			<script type="text/javascript">
+				for(let i=0; i<10000; i++){
+					document.write('<div class="pixel" onmouseenter=" if(pintar) colorear(this,incolor.value); if(borrar) goma(this)"></div>');
+				}
+			</script>
+		</div>
+
+		<script type="text/javascript">
+			var pintar = false;
+			var borrar =false;
+			
+			function colorear(elemento,color){
+				elemento.style.backgroundColor = color;
+			}
+
+			function goma(elemento){
+				elemento.style.backgroundColor = '#fff';
+			}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Ejemplo 36: Modificar atributos y contenido</title>
+	</head>
+
+	<body>
+		<img src="img/encendida.jpg" alt="una bombilla!" id="bombilla"
+			onmouseenter="this.src='img/apagada.jpg';"
+			onmouseleave="this.src='img/encendida.jpg';" 
+			height="200" width="200" />
+
+		<br/>
+		<output id="info"></output>
+		<br/>
+		<button onclick="info.innerHTML=bombilla.alt;">Info</button>
+
+	</body>
+</html>

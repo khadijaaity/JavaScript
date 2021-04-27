@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS07 exercici 6</title>
+		<link rel="stylesheet" type="text/css" href="hoja_estilos.css">
+	</head>
+
+	<body>
+		<section>
+			<h1>Calcular la impedancia total (Z).</h1>
+
+			<label>Resistencia (R):</label>
+			<input type="number" id="resistencia"/><br/>
+
+			<label>Inductancia (L):</label>
+			<input type="number" id="inductancia"/><br/>
+
+			<label>Capacidad (C):</label>
+			<input type="number" id="capacidad"/><br/>
+
+			<label>Frecuancia(f):</label>
+			<input type="number" id="frecuancia"/><br/>
+
+
+			<button onclick="calcular(parseInt(resistencia.value),parseInt(inductancia.value),parseInt(capacidad.value),parseInt(frecuancia.value));">Calcular</button>
+
+			<br/><hr/><br/>
+
+			<output id="resultado">Impedancia total es: </output>
+			
+		</section>
+		
+		<script type="text/javascript">
+
+			function calcular(R,L,C,f,Xc,Xl,Z){
+				Xc = 1/(2*Math.PI*f*C);
+				Xl = 2*Math.PI*f*L;
+
+				Z = Math.sqrt(Math.pow(R,2)+Math.pow((Xc-Xl),2));
+
+				resultado.innerHTML ='La impedancia total es: '+ Z.toFixed(2)+' &Omega;';
+			}
+			
+			
+
+		</script>
+	
+	</body>
+</html>
+

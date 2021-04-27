@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Ejemplo 33: Manejar eventos</title>
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<script>
+			function confirmar(){
+				if(confirm('Seguro quieres dar de baja?'))
+					formulario.submit();
+			}
+		</script>
+
+		<h1>Baja de usuario</h1>
+
+		<form method="post" id="formulario">
+			<label>Usuario:</label>
+			<input type="text" name="usuario">
+			<input type="button" value="Baja" onclick="confirmar();">
+		</form>
+
+	</body>
+</html>

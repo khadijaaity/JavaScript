@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>js19 DOM3 ex04</title>
+		<style type="text/css">
+			*{	
+				margin: 0;
+				padding: 0;
+				font-family: cambria;
+			}
+
+			body{
+				width: 80%;
+				margin: auto;
+			}
+			header{
+				width: 200px;
+				background-color: #000;
+				width: 100%;
+			}
+			h1{
+				color: orange;
+				text-align: center;
+				font-size: 2em;
+				padding: 0.5em;
+			}
+			figure{
+				width: 16%;
+				margin: 0.5em auto;
+				display: inline-block;
+			}
+			img{
+				width: 100%;
+				border-radius: 5px;
+				background-color: orange;
+			}
+			section{
+				margin: auto;
+				text-align: center;
+				margin-bottom: 0.5em;
+			}
+
+			section:first-of-type{
+				border: 1px solid #000;
+			}
+			section:nth-of-type(2){
+				
+				border: 1px solid #000;
+			}
+			section:nth-of-type(2) span{
+				margin-left: 0;
+			}
+			section:last-of-type{
+				border: 1px solid #000;
+				padding: 2%;
+			}
+			button{
+				padding: 0.8%;
+				color: orange;
+				background-color: #000;
+				border: 1px solid orange;
+				font-weight: bold;
+				border-radius: 5px;
+				margin-bottom: 1%;
+			}
+			h2{
+				margin: 1% auto;
+			}
+			span{
+				margin-left: 4em;
+			}
+			
+			span,label{
+				line-height: 2em;
+			}
+			input[type="radio"]{
+				margin-left: 1%;
+				padding: 1%;
+			}
+			label{
+				margin-left: 0.5%;
+			}
+			output{
+				font-weight: bold;
+			}
+		</style>
+	<body>
+		<header>
+			<h1>Juego de los dados</h1>
+		</header>
+
+		<section>
+			<span>Monedas: </span><output id="monedas">10</output>
+			<span>Partidas: </span><output id="partidas">0</output>
+			<span>Ganadas: </span><output id="ganadas">0</output>
+			<span>Perdidas: </span><output id="perdidas">0</output>
+			<span>Record: </span><output id="record">10</output>
+		</section>
+
+		<section>
+			<h2>Jugada</h2>
+			<span>Juegas</span>
+			<select>
+			</select><br/>
+
+			<input type="radio" name="mOm" value="mayor" class="mOm" checked="checked" /><label>Más de 7</label>
+			<input type="radio" name="mOm" value="Menos" class="mOm" /><label>Menos de 7</label><br/>
+		</section>
+
+		<section>
+			<h4>Tirada aleatoria de los dados</h4>
+		    <figure>
+		    	<img src="img/dado.png" alt="Tirada dado" title="Resultado tirada" />
+		    </figure>
+
+		    <figure>
+		    	<img id="dado2" src="img/dado.png" alt="Tirada dado2" title="Resultado tirada2" />
+		    </figure><br/>
+		   
+		    <button onclick="tirada();">Lanza el dado</button> 
+		    <br/><hr/>
+		    <output id="resultado"></output>
+		    <output id="respuesta"></output> 
+		</section>
+
+		
+		<script type="text/javascript">
+			
+			//variables globales.
+			var monedas = parseInt(10);
+			var ganadas = 0;
+			var perdidas = 0;
+			var partidas = 0;
+			var record = 10;
+
+			//Genero cuantas monedas tengo para apostar
+	    	var monedasApuesta = document.querySelector('select');
+
+	    	//Creamos tantas options como monedas tenga disponibles
+
+	    	for(let i=0;i<monedas;i++){
+	    		monedasApuesta.appendChild(document.createElement('option'));
+	    		monedasApuesta.children[i].value= i+1;
+	    		monedasApuesta.children[i].innerHTML=i+1;
+	    	}
+
+			function tirada(){
+
+				var aleatorio = Math.floor((Math.random()*6)+1); 
+				document.querySelector('img').src = 'img/cara'+ aleatorio + '.png';
+
+				var aleatorio2 = Math.floor((Math.random()*6)+1); 
+				document.getElementById('dado2').src = 'img/cara'+ aleatorio2 + '.png';
+
+				var suma = aleatorio+aleatorio2; 
+				document.getElementById('resultado').innerHTML = '<h3>'+ suma +'</h3>';
+
+				var apuesta = parseInt(monedasApuesta.value);
+				var mayor = document.getElementsByName('mOm')[0].checked;
+
+				for(let i=0;i<monedas;i++){
+	    		 	monedasApuesta.firstElementChild.remove();
+	    		}
+
+				
+				if(suma==7){
+	    		 	respuesta.innerHTML = 'Ha salido 7, ni para ti, ni para mi';
+	    		}else{
+	    			if(mayor){
+	    		 		if(suma>7){
+	    		 			respuesta.innerHTML = 'HAS GANADO, te llevas las monedas';
+	    		 			monedas+=apuesta;
+	    		 			ganadas++;
+	    		 		}else{
+	    		 			respuesta.innerHTML = 'HAS PERDIDO, me quedo con tus monedas';
+	    		 			monedas-=apuesta;
+	    		 			perdidas++;
+	    		 		}
+	    		 	}else{
+	    		 		if(suma<7){
+	    		 			respuesta.innerHTML = 'HAS GANADO, te llevas las monedas';
+	    		 			monedas+=apuesta;
+	    		 			ganadas++;
+	    		 		}else{
+	    		 			respuesta.innerHTML = 'HAS PERDIDO, me quedo con tus monedas';
+	    		 			monedas-=apuesta;
+	    		 			perdidas++;
+	    		 		}
+	    		 	}
+	    		}
+
+	    		//Comprobamos si tenemos más monedas para seguir jugando, que el record absoluto no se haya visto aumentado y en el caso que se así, lo actualizamos
+
+	    		if(monedas>record){
+	    			record = monedas;
+	    		}
+
+	    		if(monedas<=0){
+	    		 	alert('Te has quedado sin dinero... ¿Volvemos a judar?');
+
+	    		 	monedas = 10;
+	    		 	partidas = 0;
+	    		 	ganadas = 0;
+	    		 	perdidas =0;
+	    		 	record= 10;
+
+	    		 }
+
+	    		 //vuelvo a generar las opciones del SELECT con la cantidad de monedas que quedan
+
+	    		for(let i=0;i<monedas;i++){
+		    		monedasApuesta.appendChild(document.createElement('option'));
+		    		monedasApuesta.children[i].value= i+1;
+		    		monedasApuesta.children[i].innerHTML=i+1;
+	    		}
+
+				partidas++;
+
+				//Estadísticas
+				document.getElementById('monedas').innerHTML = monedas;
+				document.getElementById('ganadas').innerHTML = ganadas;
+				document.getElementById('perdidas').innerHTML = perdidas;
+				document.getElementById('partidas').innerHTML = partidas;
+				document.getElementById('record').innerHTML = record;
+			}
+
+
+		</script>
+		
+	</body>
+</html>

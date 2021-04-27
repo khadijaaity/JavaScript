@@ -1,0 +1,56 @@
+*{
+	margin: 0;
+	padding: 0;
+
+}
+
+:root{
+	font-family: calibri;
+}
+
+body{
+	margin: 5%;
+}
+
+
+h1{
+	text-transform: uppercase;
+	margin-bottom: 2%;
+	text-transform: uppercase;
+	margin-top: 0;
+	
+}
+
+button{
+	margin-top: 2%;
+	padding: 0.6%;
+	background-color: #000;
+	color: #fff;
+	font-weight: bolder;
+	border-radius: 5px;
+	margin-bottom: 5%;
+
+}
+
+input{
+	margin-top: 2%;
+	padding: 0.6%;
+}
+
+figure{
+	display: inline-block;
+	margin: 1%;
+	height: 200px;
+	width: 300px;
+	background-color: rgba(255,0,0,0.2);
+}
+
+img{
+	width: 200px;
+	margin: auto;
+	display: block;
+	padding: 5% 0%;
+}
+
+
+			

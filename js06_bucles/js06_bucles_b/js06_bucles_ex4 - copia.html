@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS06 ejemplo1</title>
+		<link rel="stylesheet" type="text/css" href="hoja_estilos.css">
+		<style type="text/css">
+
+			:root{
+				font-family: calibri;
+			}
+
+			body{
+				margin: 5%;
+			}
+
+			section{
+				width: 50%;
+				margin: auto;
+				text-align: center;
+				outline: 2px solid black;
+				background-color: rgba(0, 0, 0,0.1);
+				height: 450px;
+			}
+
+			h1{
+				margin-bottom: 8%;
+				border-bottom: 1px solid rgba(0,0,0,0.5);
+				text-transform: uppercase;
+				background-color: rgb(33, 47, 60,0.8);
+				margin-top: 0;
+				padding: 4%;
+				color: #fff;
+			}
+
+			input, select{
+				padding: 1%;
+				margin-bottom: 2%;
+				border-radius: 3px;
+				border: 1px solid rgba(0,0,0,0.5);
+
+			}
+
+			button{
+				padding: 1.5%;
+				background-color: #000;
+				color: #fff;
+				font-weight: bold;
+				text-transform: uppercase;
+				border-radius: 3px;
+				border: 1px solid rgba(0,0,0,0.5);
+				margin-top: 2%;
+				margin-left: 2%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 100px;
+				margin-bottom: 5px;
+				font-size: 1.2em;
+			}
+
+			output{
+				margin-top: 2%;
+				color: rgb(33, 47, 60);
+				font-weight: bold;
+				font-size: 2em;
+				
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<h1>Suma series</h1>
+
+			<label>Base:</label>
+			<input type="number" id="base" /><br/>
+
+			<label>Exponente:</label>
+			<input type="number" id="exponente" /><br/>
+
+			<button onclick="calcular();">Calcular</button>
+			<hr/>
+			<output id="resultado"></output>
+		</section>
+
+		
+
+		<script>
+			function calcular(){
+
+				var b = parseInt(base.value);
+				var e = parseInt(exponente.value);
+				var total = 1;
+				
+				if(e>0){
+					for(let i=1; i<=Math.abs(e); i++){
+						total*=b;
+					}
+					resultado.innerHTML = total;
+
+				}else{
+					total= 1/total;
+					resultado.innerHTML = total;
+				}
+
+				
+				
+			}
+
+			
+
+		</script>
+
+		
+	</body>
+</html>
+

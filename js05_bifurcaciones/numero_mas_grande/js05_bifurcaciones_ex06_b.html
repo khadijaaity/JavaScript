@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS05 Exercici 6-b</title>
+		<style type="text/css">
+
+			:root{
+				font-family: calibri;
+			}
+
+			body{
+				margin: 5%;
+			}
+
+			section{
+				width: 50%;
+				margin: auto;
+				text-align: center;
+				outline: 2px solid black;
+				background-color: rgba(0, 0, 0,0.1);
+				height: 450px;
+			}
+
+			h1{
+				margin-bottom: 8%;
+				border-bottom: 1px solid rgba(0,0,0,0.5);
+				text-transform: uppercase;
+				background-color: rgb(33, 47, 60,0.8);
+				margin-top: 0;
+				padding: 4%;
+				color: #fff;
+			}
+
+			input, select{
+				padding: 1%;
+				margin-bottom: 2%;
+				border-radius: 3px;
+				border: 1px solid rgba(0,0,0,0.5);
+
+			}
+
+			button{
+				padding: 1.5%;
+				background-color: #000;
+				color: #fff;
+				font-weight: bold;
+				text-transform: uppercase;
+				border-radius: 3px;
+				border: 1px solid rgba(0,0,0,0.5);
+				margin-top: 2%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 100px;
+				margin-bottom: 5px;
+				font-size: 1.2em;
+			}
+
+			output{
+				margin-top: 2%;
+				color: rgb(33, 47, 60);
+				font-weight: bold;
+				font-size: 2em;
+				
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<section>
+			<h1>El Número más grande de 3 introducidos</h1>
+
+			<label>Número 1:</label>
+			<input type="number" id="numero1"/><br/>
+
+			<label>Número 2:</label>
+			<input type="number" id="numero2"/><br/>
+
+			<label>Número 3:</label>
+			<input type="number" id="numero3"/><br/>
+
+			<button onclick="calcular();">Calcular</button>
+
+			<hr/><br/>
+			<output id="resultado"></output>
+
+		</section>
+
+		<script>
+
+			function calcular(){
+				var n1 = numero1.value; 				
+				var n2 = numero2.value;			
+				var n3 = numero3.value; 
+
+				if(n1>=n2 && n1>=n3){
+					resultado.innerHTML = 'El número más grante es: ' +(n1);
+
+				}
+
+				if(n2>=n1 && n2>=n3){
+					resultado.innerHTML = 'El número más grante es: ' +(n2);
+				}
+
+				if(n3>=n1 && n3>=n2){
+					resultado.innerHTML = 'El número más grante es: ' +(n3);
+				}
+			}
+
+				
+
+		</script>
+		
+	</body>
+</html>

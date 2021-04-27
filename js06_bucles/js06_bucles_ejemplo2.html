@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS06 ejemplo1</title>
+		<link rel="stylesheet" type="text/css" href="hoja_estilos.css">
+	</head>
+
+	<body>
+
+		<h1>Suma series</h1>
+
+		<label>Número 1</label>
+		<input type="number" id="n1" /><br/>
+
+		<label>Número 2</label>
+		<input type="number" id="n2" /><br/>
+
+		<button onclick="calcular();">Calcular</button><br/>
+		<br/>
+		<span>Resultado:</span>
+		<output id="resultado"></output>
+
+
+		<script>
+			function calcular(){
+				//inicializar el total y recuperar n1 y n2
+				var total = 0;
+				var n1 = parseInt(document.getElementById('n1').value);
+				var n2 = parseInt(document.getElementById('n2').value);
+
+				//mientras n1 sea menor o igual que n2
+				while(n1<=n2){
+					total+=n1; //incrementar el total en n1: total = total+n1;
+					n1++;  //incrementa n1 en 1: n1=n1+1;
+				}
+
+				//impprimir total
+				document.getElementById('resultado').innerHTML = total;
+			}
+
+		</script>
+
+		
+	</body>
+</html>
+

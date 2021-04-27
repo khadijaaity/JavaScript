@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="" />
+		<meta name="author" content="khadija ait" />
+		<title>JS11 ARRAYS Asociativos y matrices ex 01</title>
+		<style type="text/css">
+			input{
+				width: 50px;
+				padding: 0.3%;
+				margin-bottom: 1%;
+
+			}
+			input:last-of-type{
+				margin: 1%;
+			}
+			label{
+				min-width: 80px;
+				display: inline-block;margin-left: 1%;
+			}
+			button{
+				padding: 0.5% 1%;
+				background-color: black;
+				margin: 1% 0;
+				color: #fff;
+			}
+			section{
+				width: 60%;
+				text-align: center;
+				font-family: calibri;
+				margin: auto;
+				margin-top: 5%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		
+		<section>
+			<h1>Arrays asociativos y matrices.</h1>
+
+			<label>Número 1:</label><input type="number" id="num1"/>
+			<label>Número 2:</label><input type="number" id="num2"/><br/>
+			<label>Número 3:</label><input type="number" id="num3"/>
+			<label>Número 4:</label><input type="number" id="num4"/><br/>
+			<label>Número 5:</label><input type="number" id="num5"/><br/>
+
+			<button onclick="recoger(parseInt(num1.value),parseInt(num2.value),parseInt(num3.value),parseInt(num4.value),parseInt(num5.value));">RECOGER VALORES</button>
+
+			<br />
+			<label>Número a agregar: </label><input type="number" id="numero" />
+			<button onclick="agregar(parseInt(numero.value));">AGREGAR</button>
+			<h3 id="recogida"></h3>
+			<hr />
+			<h2>OPERAR</h2>
+
+			<button onclick="sumar();">Sumar</button>
+			<button onclick="maximo();">Máximo</button>
+			<button onclick="minimo();">Mínimo</button>
+			<button onclick="promedio();">Promedio</button>
+			<button onclick="escalar();">Escalar</button>
+			<button onclick="escalar2();">Escalar 2</button>
+			<br/><br/>
+			
+			<output id="resultado">Resultado</output>
+		</section>
+
+
+		<script type="text/javascript">
+
+			//recoger los valores y generar un ARRAY (Global)
+			var valores = [];
+
+			//Recogemos los valores y creamos el ARRAY
+			function recoger(n1,n2,n3,n4,n5){
+				//mediante el metodo push, agrego los números al ARRAY
+				valores.push(n1,n2,n3,n4,n5);
+
+				//Los muestro dentro de la id recogido
+				document.getElementById('recogida').innerHTML = valores;
+
+				//Reseteo los inputs para que queden vacíos
+				document.getElementById('num1').value = '';
+				document.getElementById('num2').value = '';
+				document.getElementById('num3').value = '';
+				document.getElementById('num4').value = '';
+				document.getElementById('num5').value = '';
+			} 
+
+			function agregar(n){
+				valores.push(n);
+				//Los muestro dentro de la id recogido
+				document.getElementById('recogida').innerHTML = valores;
+
+				//Reseteo los inputs para que queden vacíos
+				document.getElementById('numero').value = '';
+			}
+
+			function sumar(){
+				var suma = 0;
+
+				for(let i of valores){
+					suma+= i;
+				}
+				//OPCIÓN HECHA CON FOR IN
+				// for(let i in valores){
+				// 	suma+=valores[i];
+				// }
+
+				document.getElementById('resultado').innerHTML = suma;
+
+				//Este return, será utilizado por la función promedio
+				return suma;
+			}
+
+			function maximo(){
+				var maximo = 0;
+
+				for(let i of valores){
+					if(i>maximo){
+						maximo = i;
+					}
+				}
+
+				document.getElementById('resultado').innerHTML = maximo;
+			}
+
+			function minimo(){
+				var minimo = valores[0];
+
+				for(let i of valores){
+					if(i<minimo){
+						minimo = i;
+					}
+				}
+				
+				document.getElementById('resultado').innerHTML = minimo;
+			}
+
+			function promedio(){
+				//Aquí haré la llamada a la función suma, para que me devuelva (return) la suma de los valores que hemos hecho antes
+				document.getElementById('resultado').innerHTML = (sumar()/valores.length).toFixed(2);
+			}
+
+			function escalar(){
+				var esc = prompt('Indique el valor a escalar');
+				
+				//Aquí no podemos utilizar FOR OF, ya que el FOR OF sólo funciona como lectura, peró no permite la escritura directamente
+				for(let i in valores){
+					valores[i] = valores[i]*esc;
+				}
+
+				document.getElementById('resultado').innerHTML = valores;
+				document.getElementById('recogida').innerHTML = valores;
+			}
+
+			function escalar2(){
+				var esc = prompt('Indique el valor a escalar');
+				var copia = [];
+
+				for(let i in valores){
+					copia[i] = valores[i]*esc;
+				}
+
+				document.getElementById('resultado').innerHTML = copia;
+				document.getElementById('recogida').innerHTML = valores;
+			}
+		
+		</script>
+			
+	</body>
+</html>

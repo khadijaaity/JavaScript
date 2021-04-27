@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS08 exercici 1</title>
+		<style type="text/css">
+			img{
+				width: 20%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="img/goku1.png" alt="goku1" title="goku1" id="goku1" onclick="transformar(this);" />
+		
+		<script type="text/javascript">
+
+			function transformar(elemento){
+				elemento.src = 'img/goku2.png';
+				elemento.alt = 'goku2';
+				elemento.title = 'goku2';
+				elemento.id = 'goku2';
+				elemento.onclick = 'transformar2(this);';
+			}
+
+			function transformar2(elemento){
+				elemento.src = 'img/goku3.png';
+				elemento.alt = 'goku3';
+				elemento.title = 'goku3';
+				elemento.id = 'goku3';
+				
+			}
+
+	
+		</script>
+	
+	</body>
+</html>
+

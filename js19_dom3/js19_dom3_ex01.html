@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>js19 DOM3 ex01</title>
+		<style type="text/css">
+			*{
+				font-family: cambria;
+			}
+
+			section{
+				width: 50%;
+				margin: auto;
+				text-align: center;
+			}
+		</style>
+	<body>
+<!-- 		<section>
+			<div onmouseenter="cursiva(this);" onmouseleave="sinCursiva(this);">
+				<h1>La cancion del pirata</h1>
+				<p onmouseenter="bold(this);" onmouseleave="normal(this);">Con diez cañones por banda</p>
+				<p onmouseenter="bold(this);" onmouseleave="normal(this);">viento en popa a toda vela</p>
+				<p onmouseenter="bold(this);" onmouseleave="normal(this);">no corta el mar, sino vuela</p>
+				<p onmouseenter="bold(this);" onmouseleave="normal(this);">un velero Bergantín</p>
+			</div> 
+		</section> -->
+
+		<section>
+			<div onmouseenter="cursiva();" onmouseleave="normal();">
+				<h1 onmouseenter="colore(this);" onmouseleave="normal3(this);">La cancion del pirata</h1>
+				<p>Con diez cañones por banda</p>
+				<p>viento en popa a toda vela</p>
+				<p>no corta el mar, sino vuela</p>
+				<p>un velero Bergantín</p>
+			</div> 
+		</section>
+		
+		<script type="text/javascript">
+
+			// function cursiva(elemento){
+			// 	elemento.style.fontStyle = 'italic';
+			// }
+
+			// function sinCursiva(elemento){
+			// 	elemento.style.fontStyle = 'normal';
+			// }
+
+			// function bold(elemento){
+			// 	elemento.style.fontWeight = 'bold';
+			// }
+
+			// function normal(elemento){
+			// 	elemento.style.fontWeight = 'normal';
+			// }
+			
+
+			var parrafos = document.getElementsByTagName('p');
+
+			for(i in parrafos){
+				parrafos[i].setAttribute('onmouseenter','negrita(this)');
+				parrafos[i].setAttribute('onmouseleave','normal2(this)');
+			}
+
+			function cursiva(){
+				for(p of parrafos){
+					p.style.fontStyle = 'italic';
+				}
+			}
+
+			function normal(){
+				for(p of parrafos){
+					p.style.fontStyle = 'normal';
+				}
+			}
+
+			function negrita(elemento){
+				elemento.style.fontWeight = 'bold';
+			}
+
+			function normal2(elemento){
+				elemento.style.fontWeight = 'normal';
+			}
+
+			function colore(elemento){
+				elemento.style.color ='#00f';
+			}
+
+			function normal3(elemento){
+				elemento.style.color ='#000';
+			}
+
+		</script>
+		
+	</body>
+</html>

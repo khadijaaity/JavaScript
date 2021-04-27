@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS04 Exercici 4</title>
+		<style type="text/css">
+
+			:root{
+				font-family: cambria;
+			}
+
+			body{
+				margin: 5%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 100px;
+				margin-bottom: 5px;
+			}
+
+			output{
+				margin-top: 3%;
+				color: #00f;
+				font-weight: bold;
+				font-size: 2em;
+				
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<h2>Calculadora de años y meses</h2>
+		<form>
+			<label>Mes 1:</label>
+			<input type="number" id="mes1" pattern="^\d{2}" title="2 dígitos" placeholder="05"/>
+
+			<label>Año 1:</label>
+			<input type="number" id="any1" pattern="^\d{4}" title="4 dígitos" placeholder="2021"/><br/>
+
+			<label>Mes 2:</label>
+			<input type="number" id="mes2" placeholder="02"/>
+
+			<label>Año 2:</label>
+			<input type="number" id="any2" placeholder="2020"/><br/>
+			
+			<button type="button" onclick="calcular();">Calcular</button><br/>
+
+			<hr/><br/>
+			<output id="resultado"></output>
+		</form>
+		<script>
+
+			function calcular(){	
+
+				//leer las notas introducidos por el usuario			
+				var a1 = parseInt(document.getElementById('any1').value);
+				var m1 = parseInt(document.getElementById('mes1').value);
+				var a2 = parseInt(document.getElementById('any2').value);
+				var m2 = parseInt(document.getElementById('mes2').value);
+
+		
+				//realizar los cálculos
+				var total1 = (a1*12+m1);
+				var total2 = (a2*12+m2);
+
+				var total = (total1-total2);
+
+				//mostrar el resultado
+				if (total>0) {
+					document.getElementById('resultado').innerHTML = parseInt(total/12) +' años' + ' y ' + parseInt(total%12) +' meses';
+
+				}else{
+
+					var total = (total2-total1);
+					document.getElementById('resultado').innerHTML = parseInt(total/12) +' años' + ' y ' + parseInt(total%12) +' meses';
+				}
+
+				
+				
+			}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS03 Exercici 6</title>
+		<style type="text/css">
+			button,label{
+				margin-top: 1%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 100px;
+			}
+
+			output{
+				margin-top: 3%;
+				margin-left: 5%;
+				color: #00f;
+				font-weight: bold;
+				font-size: 2em;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h2>Par o Impar</h2>
+
+		<label>Escribe un número</label>
+		<input type="number" id="numero"/><br/>
+		
+		<button onclick="parnopar();">PAR o IMPAR</button>
+
+		<hr/>
+		<p>Resultado: <output id="resultado"></output></p>
+		
+		
+		<script>
+			function parnopar(){
+				var num = parseInt(document.getElementById('numero').value);
+				
+				if((num % 2) == 0){
+					document.getElementById('resultado').innerHTML = 'PAR';
+				}else{
+					document.getElementById('resultado').innerHTML = 'IMPAR';
+				}
+			}
+
+		</script>
+		
+	</body>
+</html>

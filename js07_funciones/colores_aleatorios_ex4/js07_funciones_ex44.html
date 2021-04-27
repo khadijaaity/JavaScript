@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Ejemplo 39: temporalizar acciones</title>
+		<style type="text/css">
+			div{
+				display: inline-block;
+				margin: 5px;
+				width: 50px;
+				height: 50px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+
+	<body>
+	
+		<script>
+			for(let i=1; i<=100; i++){
+				document.write('<div onmouseenter="colorea(this);">'+i'</div>');
+			}
+
+			
+
+			//programa la ejecución de la función colorea cada 500ms
+			
+		</script>
+
+		<script type="text/javascript">
+			//calcular un aleatorio de 0 a 255
+			
+
+			//colorea el div d de forma aleatoria
+			function colorea(elemento){
+				elemento.style.backgroundColor='rgb('+a()+','+a()+','+a()+')';
+			}
+
+			function a(){
+				return Math.floor(Math.random()*256); 
+			}
+		</script>
+	</body>
+</html>

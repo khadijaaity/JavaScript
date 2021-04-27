@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS09 Strings exercici 1</title>
+		<style type="text/css">
+			body{
+				font-family: arial;
+				margin: auto;
+				width: 95%;
+			}
+
+			button{
+				padding: 2% 3%;
+				background-color: rgba(0,0,255,0.5);;
+				color: #fff;
+				border-radius: 5px;
+				border: 1px solid #000;
+			}
+
+			div{
+				width: 300px;
+				height: 250px;
+				background-color: rgba(255,0,0,0.2);
+				text-align: center;
+				padding: 10px;
+				display: inline-block;
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<h2>charAt()</h2>
+			<p>Retorna el carácter en el índice especificado</p>
+
+			<button onclick="posicio()">Click on</button><br/><hr/>
+
+			<output id="resultado"></output>
+		</div>
+
+		<div>
+			<h2>concat()</h2>
+			<p>Une dos o más cadenas y las devuelve en una nuevacadena</p>
+
+			<button onclick="concatenar()">Click on</button><br/><hr/>
+
+			<output id="resultado2"></output>
+		</div>
+
+		<div>
+			<h2>replace()</h2>
+			<p>Reemplaza una subcadena por una nueva</p>
+
+			<button onclick="reemplazar()">Click on</button><br/><hr/>
+
+			<output id="resultado3">HOLA MUNDO</output>
+		</div>
+
+		<div>
+			<h2>indexOf()</h2>
+			<p>Retorna la posición del caracter especificado en el texto</p>
+
+			<button onclick="index()">Click on</button><br/><hr/>
+
+			<output id="resultado4"></output>
+		</div>
+
+		<div>
+			<h2>lastIndexOf()</h2>
+			<p>Retorna la última posición del caracter especificado en el texto</p>
+
+			<button onclick="lastindex()">Click on</button><br/><hr/>
+
+			<output id="resultado5"></output>
+		</div>
+
+		<div>
+			<h2>search()</h2>
+			<p>Busca y retorna la posición de la coincidencia</p>
+
+			<button onclick="buscar()">Click on</button><br/><hr/>
+
+			<output id="resultado6"></output>
+		</div>
+
+		<div>
+			<h2>slice()</h2>
+			<p>Extrae una parte de la cadena de texto y la retorna.</p>
+
+			<button onclick="extraer()">Click on</button><br/><hr/>
+
+			<output id="resultado7"></output>
+		</div>
+
+		<div>
+			<h2>split()</h2>
+			<p>Divide un String en un Array de cadenas de texto.</p>
+
+			<button onclick="divide()">Click on</button><br/><hr/>
+
+			<output id="resultado8"></output>
+		</div>
+
+		<div>
+			<h2>substring()</h2>
+			<p>Extrae los caracteres de un String entre las posiciones indicadas</p>
+
+			<button onclick="subcadena()">Click on</button><br/><hr/>
+
+			<output id="resultado9"></output>
+		</div>
+
+		<div>
+			<h2>toLowerCase()</h2>
+			<p>Convierte a minúsculas,teniendo en cuenta la conf. local</p>
+
+			<button onclick="minusculas()">Click on</button><br/><hr/>
+
+			<output id="resultado10"></output>
+		</div>
+
+		<div>
+			<h2>toUpperCase()</h2>
+			<p>Convierte a mayúsculas, teniendo en cuenta la conf. local</p>
+
+			<button onclick="mayusculas()">Click on</button><br/><hr/>
+
+			<output id="resultado11"></output>
+		</div>
+
+		<div>
+			<h2>trim()</h2>
+			<p>Elimina los espacios en blanco de inicio y final</p>
+
+			<button onclick="espacios()">Click on</button><br/><hr/>
+
+			<output id="resultado12"></output>
+		</div>
+
+		<script type="text/javascript">
+			function posicio() {
+				var texto = "HOLA MUNDO";
+				var res = texto.charAt(9)
+				resultado.innerHTML = res;
+			}
+
+			function concatenar() {
+			  var texto1 = "HOLA ";
+			  var texto2 = "MUNDO!";
+			  var res = texto1.concat(texto2);
+			  resultado2.innerHTML = res;
+			}
+
+			function reemplazar() {
+				var texto = document.getElementById("resultado3").innerHTML; 
+				var res = texto.replace("MUNDO", "MÓN");
+				resultado3.innerHTML = res;
+			}
+
+			function index() {
+				var texto = "Hola mundo, bienvenid@s al universo.";
+				var n = texto.indexOf("universo");
+				resultado4.innerHTML = n;
+			}
+
+			function lastindex() {
+				var texto = "Hola mundo, bienvenid@s al universo.";
+				var n = texto.lastIndexOf("mundo");
+				resultado5.innerHTML = n;
+			}
+
+			function buscar() {
+				var texto = "Hola mundo!"; 
+				var n = texto.search("mundo");
+				resultado6.innerHTML = n;
+			}
+
+			function extraer() {
+				var texto = "HOLA MUNDO!"; 
+				var res = texto.slice(5, 11);
+				resultado7.innerHTML = res;
+			}
+
+			function divide() {
+				var texto = "Hola mundo, bienvenid@s al universo";
+				var res = texto.split(" ");
+				resultado8.innerHTML = res;
+			}
+
+			function subcadena(){
+				var texto = "HOLA MUNDO!";
+				var res = texto.substring(5, 8);
+				resultado9.innerHTML = res;
+			}
+
+			function minusculas(){
+				var texto = "HOLA MUNDO!";
+				var res = texto.toLowerCase();
+				resultado10.innerHTML = res;
+			}
+
+			function mayusculas(){
+				var texto = "Hola mundo!";
+				var res = texto.toUpperCase();
+				resultado11.innerHTML = res;
+			}
+
+			function espacios(){
+				var texto = "     Hola mundo!     ";
+				resultado12.innerHTML = texto.trim();
+				alert(texto.trim());
+			}
+
+		</script>
+	</body>
+</html>
+

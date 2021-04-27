@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>js18 DOM2 ex04_a</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				border: 2px solid #000;
+				border-radius: 10px;
+				padding: 1%;
+				margin: 2%;
+				text-align: center;
+			}
+		</style>
+	<body>
+		
+		<div onmouseenter="aparecer();">
+			Esto es un texto, pasa el ratón por encima
+		</div>
+
+
+		<script type="text/javascript">
+			function aparecer(){
+
+				document.body.appendChild(document.createElement('div')).textContent ='Has pasado el ratón por encima';
+
+				// var contenidor = document.createElement('div');
+				// document.body.appendChild(contenidor);
+
+				// var parrafo = document.createElement('p');
+				// parrafo.innerHTML ='Pasaste el ratón';
+
+				// contenidor.appendChild(parrafo);
+			}
+		</script>
+		
+	</body>
+</html>

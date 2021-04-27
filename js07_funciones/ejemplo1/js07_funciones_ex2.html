@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS07 ejemplo 2</title>
+		<link rel="stylesheet" type="text/css" href="hoja_estilos.css">
+		<script type="text/javascript" src="colorea.js"></script>
+	</head>
+
+	<body>
+		<h1>Colorea</h1>
+		<p>Selecciona un color y haz click en los div</p>
+
+		<span>Color:</span>
+		<input type="Color" id="incolor" value="#ff0000"/>
+
+		<div onclick="colorea(this, incolor.value);"></div>
+		<div onclick="colorea(this, incolor.value);"></div>
+		<div onclick="colorea(this, incolor.value);"></div>
+		<button onclick="colorea(document.body, incolor.value);">Colorear body</button>
+	
+	</body>
+</html>
+

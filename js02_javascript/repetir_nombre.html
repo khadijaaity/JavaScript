@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Ejemplo 42: Validar formularios</title>
+		<style type="text/css">
+			label{
+				display: inline-block;
+				min-width: 110px;
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<script>
+			//valida y envía el formulario
+			function validar(){
+				if(f.elements['nombre'].value!=f.elements['repetirnombre'].value)
+					alert('No coinciden');
+				else
+					f.submit();
+			}
+		</script>
+
+		<form method="post" id="f">
+			<label for="nombre">Nombre:</label>
+			<input type="text" required name="nombre" id="nombre"/><br/>
+
+			<label for="repetirnombre">Repetir nombre:</label>
+			<input type="text" required name="repetirnombre" id="repetirnombre"/><br/>
+
+			<label for="edad">Edad:</label>
+			<input type="number" required name="edad" id="edad"/><br/>
+
+			<input type="button" onclick="validar();" value="OK" />
+		</form>
+	</body>
+</html>

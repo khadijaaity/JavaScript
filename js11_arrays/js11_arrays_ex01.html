@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="" />
+		<meta name="author" content="khadija ait" />
+		<title>JS11 ARRAYS ex 01</title>
+		<style type="text/css">
+			body{
+				font-family: cambria;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				align-content: center;
+				flex-wrap: wrap;
+			}
+			section{
+				flex: 1;
+				height: 240px;
+				padding: 1%;
+				margin: 1%;
+				background-color: rgba(255,0,0,0.1);
+				text-align: center;
+				min-width: 350px;
+				max-width: 10%;
+			}
+			h1{
+				width: 100%;
+				border-bottom: 1px solid #000;
+				text-align: center;
+				width: 90%;
+				padding: 1%;
+			}
+
+			h2{
+				border-bottom: 1px solid #000;
+
+			}
+
+			button{
+				padding: 2%;
+				background-color: rgba(255,0,0,0.3);
+				border-radius: 5px;
+				border: 1px solid grey;
+			}
+
+			section:nth-of-type(8){
+				position: relative;
+			}
+
+			section:nth-of-type(8) div{
+				position: absolute;
+				border: 2px solid red;
+				border-radius: 50%;
+				width: 60px;
+				height: 30px;
+				top: 51%;
+				left: 48%;
+			}
+
+			section:nth-of-type(10){
+				position: relative;
+			}
+
+			section:nth-of-type(10) div{
+				position: absolute;
+				border: 2px solid red;
+				border-radius: 50%;
+				width: 60px;
+				height: 30px;
+				top: 51%;
+				left: 34%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<h1>JS11. Arrays (MÉTODOS)</h1>
+		<section>
+			<h2>1. slice()</h2>
+			<p>Selecciona una parte del array y lo retorna.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma", "Claudia"]</h4>
+
+			<button onclick="miFuncion1();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado"></output>
+		</section>
+
+		<section>
+			<h2>2. sort()</h2>
+			<p>Ordena los elementos de un array.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma", "Claudia"]</h4>
+
+			<button onclick="miFuncion2();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado2"></output>
+		</section>
+
+		<section>
+			<h2>3. splice()</h2>
+			<p>Añade o quita elementos de un array.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+
+			<button onclick="miFuncion3();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado3"></output>
+		</section>
+
+		<section>
+			<h2>4. toString()</h2>
+			<p>Convierte el array a String.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+
+			<button onclick="miFuncion4();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado4"></output>
+		</section>
+
+		<section>
+			<h2>5. unshift()</h2>
+			<p>Añade elementos al inicio del array y retorna el nuevo tamaño.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+
+			<button onclick="miFuncion5();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado5"></output>
+		</section>
+
+		<section>
+			<h2>6. valueOf()</h2>
+			<p>Retorna el valor primitivo de un array.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+
+			<button onclick="miFuncion6();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado6"></output>
+		</section>
+
+		<section>
+			<h2>7. concat()</h2>
+			<p>Une dos o más arrays.</p>
+
+			<h4>["Marta", "Juan"]<br/>["Luis", "Norma", "Claudia"];</h4>
+
+			<button onclick="miFuncion7();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado7"></output>
+		</section>
+
+		<section>
+			<h2>8. indexOf()</h2>
+			<p>Busca un elemento en el array y retorna su posición.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+			<div></div>
+
+			<button onclick="miFuncion8();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado8"></output>
+		</section>
+
+		<section>
+			<h2>9. join()</h2>
+			<p>Junta los elementos de un array en un String.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+
+			<button onclick="miFuncion9();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado9"></output>
+		</section>
+
+		<section>
+			<h2>10. lastIndexOf()</h2>
+			<p>Busca la última aparición de un elemento en el array y retorna la posición.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+			<div></div>
+
+			<button onclick="miFuncion10();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado10"></output>
+		</section>
+
+		<section>
+			<h2>11. pop()</h2>
+			<p>Quita el último elemento del array y lo retorna.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+
+			<button onclick="miFuncion11();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado11"></output>
+		</section>
+
+		<section>
+			<h2>12. push()</h2>
+			<p>Añade un nuevo elemento al final del array y retorna su tamaño</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+
+			<button onclick="miFuncion12();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado12"></output>
+		</section>
+
+		<section>
+			<h2>13. reverse()</h2>
+			<p>Invierte el orden de los elementos.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+
+			<button onclick="miFuncion13();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado13"></output>
+		</section>
+
+		<section>
+			<h2>14. shift()</h2>
+			<p>Quita el primer elemento del array y lo retorna.</p>
+
+			<h4>["Marta", "Juan", "Luis", "Norma"]</h4>
+
+			<button onclick="miFuncion14();">Mostrar</button><br/>
+
+			<br/ >
+			<output id="resultado14"></output>
+		</section>
+
+		
+		<script type="text/javascript">
+
+			//Función 1: slice().
+			//Selecciona una parte del array y lo retorna.
+
+			function miFuncion1(){
+				var nombres = ["Marta", "Juan", "Luis", "Norma", "Claudia"];
+				var posicion = nombres.slice(1, 5);
+				resultado.innerHTML = posicion;
+			}
+
+			//Función 2: sort().
+			//Ordena los elementos de un array.
+
+			var nombres2 = ["Marta", "Juan", "Luis", "Norma", "Claudia"];
+			document.getElementById("resultado2").innerHTML = nombres2;
+
+			function miFuncion2(){
+				
+				nombres2.sort();
+  				document.getElementById("resultado2").innerHTML = nombres2;
+			}
+
+			//Función 3: splice().
+			//Añade o quita elementos de un array.
+
+			var nombres3 = ["Marta", "Juan", "Luis", "Norma"];
+			document.getElementById("resultado3").innerHTML = nombres3;
+
+			function miFuncion3(){
+				nombres3.splice(4, 2, "Claudia","Marc");
+				document.getElementById("resultado3").innerHTML = nombres3;
+				
+			}
+
+			//Función 4: toString().
+			//Convierte el array a String.
+
+			function miFuncion4(){
+				var nombres = ["Marta", "Juan", "Luis", "Norma"];
+				var x = nombres.toString();
+				document.getElementById("resultado4").innerHTML = x;
+			}
+
+			var nombres5 = ["Marta", "Juan", "Luis", "Norma"];
+			document.getElementById("resultado5").innerHTML = nombres5;
+
+			//Función 5: unshift().
+			//Añade elementos al inicio del array y retorna el nuevo tamaño.
+
+			function miFuncion5(){
+				nombres5.unshift("Claudia", "Marc");
+  				document.getElementById("resultado5").innerHTML = nombres5;
+			}
+
+			//Función 6: valueOf().
+			//Retorna el valor primitivo de un array.
+
+			function miFuncion6(){
+				var nombres = ["Marta", "Juan", "Luis", "Norma"];
+  				document.getElementById("resultado6").innerHTML = nombres.valueOf();
+			}
+
+			//Función 7: concat().
+			//Une dos o más arrays
+
+			function miFuncion7(){
+				var clase1 = ["Marta", "Juan"];
+				var clase2 = ["Luis", "Norma", "Claudia"];
+				var clase = clase1.concat(clase2); 
+				document.getElementById("resultado7").innerHTML = clase;
+			}
+
+			//Función 8: indexOf().
+			//Busca un elemento en el array y retorna su posición.
+
+			function miFuncion8(){
+				var nombres = ["Marta", "Juan", "Luis", "Norma"];
+				var a = nombres.indexOf("Luis");
+				document.getElementById("resultado8").innerHTML = a;
+			}
+
+			//Función 9: join().
+			//Junta los elementos de un array en un String
+
+			function miFuncion9(){
+				var nombres = ["Marta", "Juan", "Luis", "Norma"];
+				document.getElementById("resultado9").innerHTML = nombres.join(' - ');
+			}
+
+			//Función 10: lastIndexOf().
+			//Busca la última aparición de un elemento en el array y retorna la posición.
+
+			function miFuncion10(){
+				var nombres = ["Marta", "Juan", "Luis", "Norma"];
+				var a = nombres.lastIndexOf("Juan");
+				document.getElementById("resultado10").innerHTML = a;
+			}
+
+			//Función 11: pop().
+			//Quita el último elemento del array y lo retorna.
+
+			var nombres11 = ["Marta", "Juan", "Luis", "Norma"];
+			document.getElementById("resultado11").innerHTML = nombres11;
+
+			function miFuncion11(){
+				nombres11.pop();
+ 				document.getElementById("resultado11").innerHTML = nombres11;
+			}
+
+			//Función 12: push().
+			//Añade un nuevo elemento al final del array y retorna su tamaño
+
+			var nombres12 = ["Marta", "Juan", "Luis", "Norma"];
+			document.getElementById("resultado12").innerHTML = nombres12;
+			
+			function miFuncion12(){
+				nombres12.push("Claudia");
+  				document.getElementById("resultado12").innerHTML = nombres12;
+			}
+
+			//Función 13: reverse().
+			//Invierte el orden de los elementos.
+
+			var nombres13 = ["Marta", "Juan", "Luis", "Norma"];
+			document.getElementById("resultado13").innerHTML = nombres13;
+
+			function miFuncion13(){
+				nombres13.reverse();
+  				document.getElementById("resultado13").innerHTML = nombres13;
+			}
+
+			//Función 14: shift().
+			//Quita el primer elemento del array y lo retorna.
+
+			var nombres14 = ["Marta", "Juan", "Luis", "Norma"];
+			document.getElementById("resultado13").innerHTML = nombres14;
+
+			function miFuncion14(){
+				nombres14.shift();
+  				document.getElementById("resultado14").innerHTML = nombres14;
+			}
+
+
+			
+		</script>
+			
+	</body>
+</html>

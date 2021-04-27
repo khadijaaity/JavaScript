@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS07 exercici 2</title>
+		<link rel="stylesheet" type="text/css" href="hoja_estilos.css">
+	</head>
+
+	<body>
+		<section>
+			<h1>Calcular áreas.</h1>
+			
+			<label>Base:</label>
+			<input type="number" id="base"/><br/>
+
+			<label>Altura:</label>
+			<input type="number" id="altura"/><br/>
+
+			<label>Radio:</label>
+			<input type="number" id="radio"/><br/>
+
+			<button onclick="AreaTriangulo(parseInt(base.value),parseInt(altura.value));">Área Triángulo</button>
+
+			<button onclick="AreaReclangulo(parseInt(base.value),parseInt(altura.value));">Área reclángulo</button>
+
+			<button onclick="AreaCirculo(parseInt(radio.value));">Área círculo</button>
+		</section>
+		
+		<script type="text/javascript" src="funciones.js"></script>
+	
+	</body>
+</html>
+

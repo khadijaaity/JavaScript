@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="" />
+		<meta name="author" content="khadija ait" />
+		<title>JS11 ARRAYS Asociativos y matrices ex 02</title>
+		<style type="text/css">
+			input{
+				width: 50px;
+				padding: 0.3%;
+				margin-bottom: 1%;
+
+			}
+			input:last-of-type{
+				margin: 1%;
+			}
+			label{
+				min-width: 80px;
+				display: inline-block;margin-left: 1%;
+			}
+			button{
+				padding: 0.5% 1%;
+				background-color: black;
+				margin: 1% 0;
+				color: #fff;
+			}
+			section{
+				width: 70%;
+				text-align: center;
+				font-family: calibri;
+				margin: auto;
+				margin-top: 5%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		
+		<section>
+			<h1>Arrays asociativos y matrices.</h1>
+
+			<label>Número 1:</label><input type="number" id="num1"/>
+			<label>Número 2:</label><input type="number" id="num2"/><br/>
+			<label>Número 3:</label><input type="number" id="num3"/>
+			<label>Número 4:</label><input type="number" id="num4"/><br/>
+			<label>Número 5:</label><input type="number" id="num5"/>
+			<label>Número 6:</label><input type="number" id="num6"/><br/>
+
+			<button onclick="recoger(parseInt(num1.value),parseInt(num2.value),parseInt(num3.value),parseInt(num4.value),parseInt(num5.value),parseInt(num6.value));">RECOGER VALORES</button>
+
+			<br />
+			<label>Número a agregar: </label><input type="number" id="numero" />
+			<button onclick="agregar(parseInt(numero.value));">AGREGAR</button>
+			<h3 id="recogida"></h3>
+			<hr />
+
+			<h2>OPERAR</h2>
+
+			<button onclick="positivos();">Positivos</button>
+			<button onclick="negativos();">Negativos</button>
+			<button onclick="pares();">Pares</button>
+			<button onclick="impares();">Impares</button>
+			<br/><br/>
+			
+			<output id="resultado">Resultado</output>
+		</section>
+
+
+		<script type="text/javascript">
+
+			//Recogemos los valores y generaramos un ARRAY (Global)
+			var valores = [];
+
+			//Recogemos los valores y creamos el ARRAY
+			function recoger(n1,n2,n3,n4,n5,n6){
+				//mediante el metodo push, agrego los números al ARRAY
+				valores.push(n1,n2,n3,n4,n5,n6);
+
+				//Los muestro dentro de la id recogido
+				document.getElementById('recogida').innerHTML = valores;
+
+				//Reseteo los inputs para que queden vacíos
+				document.getElementById('num1').value = '';
+				document.getElementById('num2').value = '';
+				document.getElementById('num3').value = '';
+				document.getElementById('num4').value = '';
+				document.getElementById('num5').value = '';
+				document.getElementById('num6').value = '';
+			} 
+
+			function agregar(n){
+				valores.push(n);
+				//Los muestro dentro de la id recogida
+				document.getElementById('recogida').innerHTML = valores;
+
+				//Reseteo los inputs para que queden vacíos
+				document.getElementById('numero').value = '';
+			}
+
+			
+			function positivos(){
+				var positivo = 0;
+
+				for(let i of valores){
+					if(i>0){
+						positivo++;
+					}
+				}
+
+				document.getElementById('resultado').innerHTML = positivo;
+			}
+
+			function negativos(){
+				var negativo = 0;
+
+				for(let i of valores){
+					if(i<0){
+						negativo++;
+					}
+				}
+
+				document.getElementById('resultado').innerHTML = negativo;
+			}
+
+			function pares(){
+				
+				var pares = 0;
+
+				for(let i of valores){
+					if(i%2 == 0 && i!=0){
+						pares++;
+					}
+				}
+
+				document.getElementById('resultado').innerHTML = pares;
+			}
+
+			function impares(){
+				var impares = 0;
+
+				for(let i of valores){
+					if(i%2 != 0){
+						impares++;
+					}
+				}
+
+				document.getElementById('resultado').innerHTML = impares;
+			}
+
+		</script>
+			
+	</body>
+</html>

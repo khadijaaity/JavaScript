@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>js18 DOM2 ex05</title>
+		<style type="text/css">
+			output,h2{
+				font-family: arial;
+			}
+			figure{
+				width: 40%;
+				margin: auto;
+			}
+			img{
+				width: 100%;
+			}
+			section{
+				width: 50%;
+				margin: auto;
+				text-align: center;
+			}
+			button{
+				padding: 1%;
+				color: #fff;
+				background-color: #000;
+				border: none;
+				font-weight: bold;
+				border-radius: 10px;
+			}
+		</style>
+	<body>
+		<section>
+			<h2>Tirada Aleatoria de un Dado de 6 Caras</h2>
+		    <figure>
+		    	<img src="img/dado.png" alt="Tirada dado" title="Resultado tirada" />
+		    </figure>
+		   
+		    <button onclick="tirada()">Lanza el dado</button> 
+		    <br/><hr/>
+		    <output></output> 
+		</section>
+		
+		<script type="text/javascript">
+		
+			function tirada(){  
+				var aleatorio = Math.floor((Math.random()*6)+1); 
+				document.querySelector('img').src = 'img/cara'+ aleatorio + '.png';
+				document.querySelector('output').innerHTML = 'El número que ha salido en el dado es: ' + '<h2>'+aleatorio +'</h2>';
+			}
+		</script>
+		
+	</body>
+</html>

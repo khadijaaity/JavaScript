@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS05 Exercici 01</title>
+		<style type="text/css">
+
+			:root{
+				font-family: cambria;
+			}
+
+			body{
+				margin: 5%;
+			}
+
+			section{
+				width: 50%;
+				margin: auto;
+				text-align: center;
+				outline: 2px solid black;
+				background: linear-gradient(to top, rgba(0,0,0,0.4) 0%,  rgba(255, 255, 255,0.2) 100% );
+				height: 400px;
+			}
+
+			h1{
+				margin-bottom: 8%;
+				border-bottom: 1px solid rgba(0,0,0,0.5);
+				text-transform: uppercase;
+				background-color: rgb(33, 47, 60,0.8);
+				margin-top: 0;
+				padding: 4%;
+				color: #fff;
+			}
+
+			input{
+				padding: 1%;
+				margin-bottom: 2%;
+				border-radius: 3px;
+				border: 1px solid rgba(0,0,0,0.5);
+			}
+
+			button{
+				padding: 1.5%;
+				background-color: #000;
+				color: #fff;
+				font-weight: bold;
+				text-transform: uppercase;
+				border-radius: 3px;
+				border: 1px solid rgba(0,0,0,0.5);
+			}
+
+			label{
+				display: inline-block;
+				min-width: 100px;
+				margin-bottom: 5px;
+				font-size: 1.2em;
+			}
+
+			output{
+				margin-top: 2%;
+				color: rgb(33, 47, 60);
+				font-weight: bold;
+				font-size: 2em;
+				
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<h1>Calculador de Nota Media</h1>
+
+			<label>Nota 1:</label>
+			<input type="number" min="0" id="nota1"/><br/>
+
+			<label>Nota 2:</label>
+			<input type="number" min="0" id="nota2"/><br/>
+
+			<label>Nota 3:</label>
+			<input type="number" min="0" id="nota3"/><br/>
+
+			
+			<button type="button" onclick="calcular();">Calcular</button><br/>
+
+			<hr/><br/>
+			<output id="resultado"></output>
+		</section>
+
+
+		<script>
+
+			function calcular(){	
+
+				//leer las notas introducidos por el usuario			
+				var n1 = parseFloat(document.getElementById('nota1').value);
+				var n2 = parseFloat(document.getElementById('nota2').value);
+				var n3 = parseFloat(document.getElementById('nota3').value);
+		
+				//realizar los cálculos
+				var prom = (n1+n2+n3)/3;
+
+				//mostrar el resultado
+				if (prom>=5) {
+					document.getElementById('resultado').innerHTML = 'Aprobaste';
+				}else{
+					document.getElementById('resultado').innerHTML = 'Suspendiste';
+				}
+				
+			}
+
+		</script>
+	</body>
+</html>

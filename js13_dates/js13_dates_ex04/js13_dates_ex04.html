@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="author" content="khadija ait" />
+		<title>JS10 DATES ex04</title>
+		<style type="text/css">
+			*{
+				font-family: calibri;
+			}
+			div{
+				background-color: rgba(255,0,0,0.1);
+				width: 40%;
+				height: 200px;
+				margin: auto;
+				padding: 5%;
+				text-align: center;
+				position: relative;
+				border-radius: 10px;
+			}
+
+			input,label{
+				margin: 1%;
+				font-size: 1.1em;
+			}
+			button{
+				padding: 1%;
+				background-color: rgba(252,221,22,0.7);
+				border-radius: 5px;
+				border: 1px solid #000;
+				font-size: 1.1em;
+				margin-top: 2%;
+			}
+
+			#imagen{
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				margin: auto;
+				width: 100%;
+				text-align: center;
+				animation: 2s;
+			}
+
+		</style>
+	</head>
+
+	<body>
+	
+		<div>
+			<h2>Calculador de fecha de nacimiento</h2>
+			<label>Introduce tu fecha de nacimiento:</label>
+			<input type="date" id="fecha"/><br/>
+
+			<button onclick="calcular(fecha.valueAsDate);">Quedan</button><br/>
+			<hr/>
+			<output id="resultado"></output><br>
+			<img id="imagen" src="img/foto.jpg"/>
+		</div>
+		
+	
+		<script type="text/javascript">
+			function calcular(cumple){
+
+				//Recoger el día actual y resetear a 0 las horas, minutos, segundos y milisegundos.
+				var hoy = new Date();
+				hoy.setHours(0,0,0,0);
+				cumple.setHours(0,0,0,0);
+
+		    	//Calcular los años que han pasado desde el nacimiento.
+				var anyDif = hoy.getFullYear()-cumple.getFullYear();
+
+				//Cambiar el año de nacimiento por el año actual para poder comparar si tu cumpleaños de este año ya ha pasado o no
+				cumple.setFullYear(hoy.getFullYear());
+
+				//Comparar si el día de tu comple ya ha pasado o no. En caso de que no haya pasado, restar cumple-hoy y lo convertimos de milisegundos a días.
+				
+				if(cumple>hoy){
+					var diferencia = cumple-hoy;
+					diferencia = parseInt(((((diferencia/1000)/60)/60)/24));
+
+					resultado.innerHTML = "Faltan "+diferencia+" días, para que llegue tu cumpleaños y cumplas "+anyDif+".";
+				
+				//En caso que coincidan los días, le felicitamos el aniversario
+				}else if(cumple.getTime()==hoy.getTime()){
+					resultado.innerHTML = "FELICIDADESSS!!! HOY ES TU CUMPLE. CUMPLES "+anyDif+" años."
+				
+
+				//En caso que el cumple ya haya pasado este año, le sumaremos +1 al año de cumpleaños.
+				}else{
+					cumple.setFullYear(cumple.getFullYear()+1);
+					var diferencia = cumple-hoy;
+					diferencia = parseInt(((((diferencia/1000)/60)/60)/24));
+					anyDif++;
+
+					resultado.innerHTML = "Faltan "+diferencia+" días, para que llegue tu cumpleaños y cumplas "+anyDif+".";
+
+					var imagen = document.getElementById("imagen").value;
+			    	imagen.style.display = 'block';
+				}
+			}
+
+		</script>
+		
+	</body>
+</html>

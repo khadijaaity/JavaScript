@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="author" content="khadija ait" />
+		<title>JS10 DATES ex03</title>
+		<style type="text/css">
+			@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+			div{
+				background-color: #000;
+				width: 400px;
+				height: 200px;
+				margin: auto;
+				color: #fff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+				border-radius: 10px;
+				font-family: 'Orbitron', sans-serif;
+			}
+			
+			#hora{
+				font-size: 3em;
+			}
+
+			#fecha{
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				font-size: 1em;
+			}
+
+		</style>
+	</head>
+
+	<body>
+	
+		<div>
+			<output id="hora"></output>
+			<output id="fecha"></output>
+		</div>
+		
+	
+		<script type="text/javascript">
+			function horaActual(){
+
+		    var reloj = new Date();
+		    var horas = reloj.getHours();
+		    var minutos = reloj.getMinutes();
+		    var segundos = reloj.getSeconds();
+
+		    if(minutos < 10){
+		        minutos = "0" + minutos;
+		    }
+
+		    if(segundos<10){
+		        segundos = "0" + segundos;
+		    }
+
+		    if(horas<10){
+		        horas = "0" + horas;
+		    }
+		    
+		    document.getElementById("hora").innerHTML = horas + " : " + minutos + " : " + segundos;
+
+
+		    var fecha = new Date();
+			var dias = ['Domindo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+			var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+		    document.getElementById("fecha").innerHTML = dias[fecha.getDay()]+' '+fecha.getDate()+' de '+meses[fecha.getMonth()]+' de '+fecha.getFullYear();
+
+		   }
+
+		   setInterval(horaActual,1000);
+		    
+		
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>js18 DOM2 ex01</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.grande{font-size: 2em;}
+			.rojo{color: red;}
+			.cursiva{font-style: italic;}
+			select, p{
+				margin: 10px;
+			}
+			figure{
+				width: 15%;
+				display: inline-block;
+			}
+			img{
+				width: 100%;
+			}
+
+			div{
+				height: 100px;
+				width: 100px;
+				margin: 10px;
+			}
+			#d1{background-color: red;}
+			#d2{background-color: blue;}
+			#d3{background-color: yellow;}
+			.eliminarClase{
+				color: red;
+			}
+		</style>
+
+	<body>
+		<p id="par">Esto es un texto</p>
+		<select id="sel">
+			<option value="grande">Grande</option>
+			<option value="rojo">Rojo</option>
+			<option value="cursiva">Cursiva</option>
+		</select>
+		<button onclick="aplicar(par, sel.value);">Aplicar</button>
+		<button onclick="eliminar(par, sel.value);">Eliminar</button>
+
+		<section id="parrafos">
+			<p onclick="this.parentNode.removeChild(this);">Hola</p>
+			<p onclick="this.parentNode.removeChild(this);">Si me haces click</p>
+			<p onclick="this.parentNode.removeChild(this);">desaparezco</p>
+		</section>
+
+		<section id="parrafos2">
+			<p onclick="this.remove();">Esto no va</p>
+			<p onclick="this.remove();">en Explorer</p>
+			<p onclick="this.remove();">que raro</p>	
+		</section>
+
+		<h1 class="eliminarClase">¡Hola Mundo!</h1>
+		<button onclick="eliminarCl()">Eliminar</button>
+
+		<div id="d1" onclick="subir(this);"></div>
+		<div id="d2" onclick="subir(this);"></div>
+		<div id="d3" onclick="subir(this);"></div>
+
+		<h3 class="example">título</h3>
+		<h5 class="example">Subtítulo</h5>
+		<p class="example">Este párrafo es un ejemplo</p>
+
+		<button onclick="cambiarColor();">cambiar</button>
+
+		<section>
+			<figure onclick="clonar(this);">
+				<img src="gremlin.png" title="gremlin" alt="gremlin">
+				<figcaption>Clickame para clonar</figcaption>
+			</figure>
+			
+		</section>
+
+				
+	
+		<script type="text/javascript">
+			function aplicar(elemento,clase){
+				elemento.classList.add(clase);
+			}
+			function eliminar(elemento,clase){
+				elemento.classList.remove(clase);
+			}
+
+			function clonar(figura){
+				var clonf = figura.cloneNode();
+				var cloni = figura.children[0].cloneNode();
+
+				clonf.setAttribute('class','grande');
+				clonf.onclick = function(){this.remove();}
+				clonf.appendChild(cloni);
+
+				document.body.appendChild(clonf).style.backgroundColor = '#ccc';
+				document.body.appendChild(clonf).style.border = '2px solid #000';
+				document.body.appendChild(clonf).style.margin = '1em';
+
+			}
+
+			function subir(el){
+				if (el!=el.parentElement.children[0])
+					el.parentElement.insertBefore(el, el.previousElementSibling);
+				else
+					el.parentElement.appendChild(el);
+			}
+			
+			function cambiarColor() {
+				var x = document.querySelectorAll(".example");
+			    for (let i = 0; i < x.length; i++) {
+			   		x[i].style.backgroundColor = "green";
+			  	}
+			}
+
+			function eliminarCl(){
+				document.getElementsByTagName("h1")[0].removeAttribute("class"); 
+			}
+
+
+		</script>
+	</body>
+</html>

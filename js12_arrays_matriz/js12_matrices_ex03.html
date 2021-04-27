@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewp ort" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="" />
+		<meta name="author" content="khadija ait" />
+		<title>JS11 ARRAYS Asociativos y matrices ex 03</title>
+		<style type="text/css">
+			input{
+				width: 50px;
+				padding: 0.3%;
+				margin: 1%;
+
+			}
+	
+			button{
+				padding: 0.5% 1%;
+				background-color: black;
+				margin: 1% 0;
+				color: #fff;
+			}
+			section{
+				width: 60%;
+				text-align: center;
+				font-family: calibri;
+				margin: auto;
+				margin-top: 2%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		
+		<section>
+			<h1>Vector 1:</h1>
+			<label>Valor 1:</label><input type="text" id="num1"/>
+			<label>Valor 2:</label><input type="text" id="num2"/>
+			<label>Valor 3:</label><input type="text" id="num3"/>
+			<label>Valor 4:</label><input type="text" id="num4"/>
+			<label>Valor 5:</label><input type="text" id="num5"/><br/>
+
+			<button onclick="recoger(num1.value,num2.value,num3.value,num4.value,num5.value);">RECOGER VALORES 1</button>
+
+			<br/>
+			<label>Número a agregar: </label><input type="text" id="numero" />
+			<button onclick="agregar(numero.value);">AGREGAR</button><br />
+
+			<h3 id="recogida"></h3>
+
+			<hr/>
+
+			<h2>Vector 2:</h2>
+			<label>Valor 1:</label><input type="text" id="num11" />
+			<label>Valor 2:</label><input type="text" id="num22" />
+			<label>Valor 3:</label><input type="text" id="num33" />
+			<label>Valor 4:</label><input type="text" id="num44" />
+			<label>Valor 5:</label><input type="text" id="num55" /><br/>
+
+			<button onclick="recoger2(num11.value,num22.value,num33.value,num44.value,num55.value);">RECOGER VALORES 2</button>
+
+			<br/>
+			<label>Número a agregar: </label><input type="text" id="numero2" />
+			<button onclick="agregar2(numero2.value);">AGREGAR</button><br />
+
+			<h3 id="recogida2"></h3><hr/>
+
+			<h2>OPERAR (sin métodos)</h2>
+			<label>buscar la posición del vector:</label><input type="number" id="buscar"/><br />
+
+			<button onclick="indiceDe(buscar.value);">indexOf()</button>
+			<button onclick="ultimoIndiceDe(buscar.value);">lastIndexOf()</button>
+			<button onclick="concatenar();">concat()</button>
+			<button onclick="invertir();">reverse()</button><br/>
+						
+			
+			<output id="resultado">Resultado</output>
+		</section>
+
+
+		<script type="text/javascript">
+
+			//Recoger los valores y generar un ARRAY (Global)
+			var vector1 = [];
+			var vector2 = [];
+
+			//Recogemos los valores y creamos el ARRAY
+			function recoger(n1,n2,n3,n4,n5){
+				//mediante el metodo push, agrego los números al ARRAY
+				vector1.push(n1,n2,n3,n4,n5);
+
+				//Los muestro dentro de la id recogido
+				document.getElementById('recogida').innerHTML = vector1;
+
+				//Reseteo los inputs para que queden vacíos
+				document.getElementById('num1').value = '';
+				document.getElementById('num2').value = '';
+				document.getElementById('num3').value = '';
+				document.getElementById('num4').value = '';
+				document.getElementById('num5').value = '';
+				document.getElementById('num6').value = '';
+			} 
+
+			function recoger2(n1,n2,n3,n4,n5){
+				//mediante el metodo push, agrego los números al ARRAY
+				vector2.push(n1,n2,n3,n4,n5);
+
+				//Los muestro dentro de la id recogido
+				document.getElementById('recogida2').innerHTML = vector2;
+
+				//Reseteo los inputs para que queden vacíos
+				document.getElementById('num11').value = '';
+				document.getElementById('num22').value = '';
+				document.getElementById('num33').value = '';
+				document.getElementById('num44').value = '';
+				document.getElementById('num55').value = '';
+				document.getElementById('num66').value = '';
+			}
+
+			function agregar(n){
+				vector1.push(n);
+				//Los muestro dentro de la id recogida
+				document.getElementById('recogida').innerHTML = vector1;
+
+				//Reseteo los inputs para que queden vacíos
+				document.getElementById('numero').value = '';
+			}
+
+			function agregar2(n){
+				vector2.push(n);
+				//Los muestro dentro de la id recogida
+				document.getElementById('recogida2').innerHTML = vector2;
+
+				//Reseteo los inputs para que queden vacíos
+				document.getElementById('numero2').value = '';
+			}
+
+			function indiceDe(n){
+
+				for(let i in vector1){
+					if(vector1[i]==n){
+						document.getElementById('resultado').innerHTML = 'La posición del elemento buscado es: '+i;
+						return;
+					}
+				}
+
+				document.getElementById('resultado').innerHTML = 'La posición del elemento buscado es -1';
+			}
+
+			function ultimoIndiceDe(n){
+				for(let i=vector1.length-1; i>=0; i--){
+					if(vector1[i]==n){
+						document.getElementById('resultado').innerHTML = 'La última posición del elemento buscado es: '+i;
+						return;
+					}
+				}
+
+				document.getElementById('resultado').innerHTML = 'La última posición del elemento buscado es -1';
+			}
+
+			function concatenar(){
+				for(i of vector2){
+					vector1.push(i);
+				}
+
+				document.getElementById('resultado').innerHTML = vector1;
+				document.getElementById('recogida').innerHTML = vector1;
+			}
+
+			function invertir(){
+				var vectorInvertido = [];
+
+				for(let i=vector1.length-1;i>=0;i--){
+					vectorInvertido.push(vector1[i]);
+				}
+
+				document.getElementById('resultado').innerHTML = vectorInvertido;
+			}
+
+		</script>
+			
+	</body>
+</html>

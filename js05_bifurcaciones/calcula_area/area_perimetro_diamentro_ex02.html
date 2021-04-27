@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS05 Exercici 5</title>
+		<style type="text/css">
+
+			:root{
+				font-family: calibri;
+			}
+
+			body{
+				margin: 5%;
+			}
+
+			section{
+				width: 50%;
+				margin: auto;
+				text-align: center;
+				outline: 2px solid black;
+				background-color: rgba(0, 0, 0,0.1);
+				height: 450px;
+			}
+
+			h1{
+				margin-bottom: 8%;
+				border-bottom: 1px solid rgba(0,0,0,0.5);
+				text-transform: uppercase;
+				background-color: rgb(33, 47, 60,0.8);
+				margin-top: 0;
+				padding: 4%;
+				color: #fff;
+			}
+
+			input, select{
+				padding: 1%;
+				margin-bottom: 2%;
+				border-radius: 3px;
+				border: 1px solid rgba(0,0,0,0.5);
+
+			}
+
+			button{
+				padding: 1.5%;
+				background-color: #000;
+				color: #fff;
+				font-weight: bold;
+				text-transform: uppercase;
+				border-radius: 3px;
+				border: 1px solid rgba(0,0,0,0.5);
+				margin-top: 2%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 100px;
+				margin-bottom: 5px;
+				font-size: 1.2em;
+			}
+
+			output{
+				margin-top: 2%;
+				color: rgb(33, 47, 60);
+				font-weight: bold;
+				font-size: 2em;
+				
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<section>
+			<h1>Calcular el perímetro, el área y el diámetro de una circunferencia</h1>
+
+			<label>Radio:</label>
+			<input type="number" id="radio"/><br/>
+
+			<label>Perímetro: </label>
+			<input type="checkbox" id="peri">
+
+			<label>Área:</label>
+			<input type="checkbox" id="ari">
+
+			<label>Diámetro:</label>
+			<input type="checkbox" id="diame"><br/>
+
+			<button onclick="calcular();">Calcular</button>
+
+			<hr/><br/>
+			<output id="outresultado"></output>
+
+		</section>
+
+		<script>
+
+			function perimetro(){
+				var r = parseFloat(document.getElementById('radio').value);
+				
+
+				var resultado = 2*Math.PI*r;
+
+				outresultado.innerHTML += 'El perímetro es: ' + resultado.toFixed(2) + '<br/>';
+			}
+
+			function area(){
+				var r = parseFloat(document.getElementById('radio').value);
+				
+
+				var resultado = Math.PI*Math.pow(r, 2);
+
+				outresultado.innerHTML += 'El área es: ' + resultado.toFixed(2) + '<br/>';
+			}
+
+			function diametro(){
+				var r = parseFloat(document.getElementById('radio').value);
+				
+
+				var resultado = 2*r;
+
+				outresultado.innerHTML += 'El diámetro es: ' + resultado.toFixed(2) + '<br/>';
+			}
+
+			function calcular(){
+				var resultado = '';
+				outresultado.innerHTML = '';
+
+				if(peri.checked){
+					perimetro();
+				}
+
+				if(ari.checked){
+					area();
+				}
+
+				if(diame.checked){
+					diametro();
+				}
+				
+			}
+
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS07 exercici 5</title>
+		<link rel="stylesheet" type="text/css" href="hoja_estilos.css">
+	</head>
+
+	<body>
+		
+		<h1>Cambiar Tamaños de Imágenes </h1>
+
+		<label>Color</label>
+		<input type="color" id="incolor"/><br/><br/>
+
+
+		<figure onclick="colorear(this,incolor.value);">
+			<img src="img/foto1.jpg" title="foto1" alt="foto1"  onmouseenter="escala(this,1.30);" onmouseleave="escala(this,0.769);"  />
+		</figure>
+		
+	
+		
+		<script type="text/javascript">
+
+			for(let i=0; i<5;i++){
+				document.write('<figure onclick="colorear(this.color.value)"><img src="img/foto1.jpg" title="foto1" alt="foto1" onmouseenter="escala(this,1.30);" onmouseleave="escala(this,0.769);"/></figure>');
+			}
+
+			function escala(elemento,e){
+				elemento.style.height = (elemento.height * e) + 'px';
+				elemento.style.width = (elemento.width * e) + 'px';
+
+			}
+
+			function colorear(elemento,color){
+				elemento.style.backgroundColor = c;
+			}
+
+		</script>
+	
+	</body>
+</html>
+

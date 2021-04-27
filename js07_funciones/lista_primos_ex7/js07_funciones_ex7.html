@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS07 exercici 7</title>
+		<link rel="stylesheet" type="text/css" href="hoja_estilos.css">
+	</head>
+
+	<body>
+		<section>
+			<h1>Números Primos.</h1>
+			<p>Un número es primo si solamente es divisible por uno o por él mismo.</p>
+			
+			<label>Número:</label>
+			<input type="number" id="numero"/><br/>
+
+
+			<button onclick="listaPrimos(parseInt(numero.value));">Comprovar</button>
+
+			<br/><hr/><br/>
+
+			<output id="resultado"></output>
+			
+		</section>
+		
+		<script type="text/javascript">
+			//funcion listaPrimos
+			//recibe: parseInt(numero.value)
+			//Devuelve un string(cadena de texto) con el listado de primos desde el 1 hasta numero
+			function listaPrimos(n){
+
+				var lista ='';
+			
+				for(let i=1; i<=n; i++){
+					if(esPrimo(i)){
+						lista+= ' '+ i+',';
+					}
+				}
+				resultado.innerHTML = lista;
+			}
+
+			//funcion : esPrimo(n)
+			//recibe:iActual
+			//Devuelve:Boolean (True or false)
+			//esPrimo, indica si un numero es primo o no
+			function esPrimo(iActual){
+				for(let j=2; j<iActual; j++){
+					if(iActual%j==0){
+						return false;
+
+					}
+				}
+
+				return true;
+			}
+			
+		</script>
+	
+	</body>
+</html>
+

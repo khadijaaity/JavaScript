@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS09 Strings exercici 5</title>
+		<style type="text/css">
+			body{
+				font-family: arial;
+				margin: auto;
+				width: 95%;
+			}
+
+			button{
+				padding: 1.5%;
+				background-color: rgba(0,0,255,0.5);;
+				color: #fff;
+				border-radius: 5px;
+				border: 1px solid #000;
+				font-weight: bold;
+			}
+
+			section{
+				width: 50%;
+				background-color: rgba(255,0,0,0.2);
+				margin: 10px;
+				padding: 2%;
+				height: 300px;
+			}
+
+			input{
+				padding: 1%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 150px;
+				padding-bottom: 2%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<h2>Escribe tu nombre y apellidos</h2>
+			<label>Nombre:</label>
+			<input type="text" id="nom"/><br/>
+
+			<label>Primer apellido:</label>
+			<input type="text" id="primero"/><br/>
+
+			<label>Segundo apellido:</label>
+			<input type="text" id="segundo"/><br/>
+
+			<button onclick="transformar(nom.value, primero.value.toUpperCase(), segundo.value.toUpperCase());">Mostrar</button><br/><hr/>
+
+			<output id="resultado"></output>
+		</section>
+
+		
+
+		<script type="text/javascript">
+			function transformar(nombre,apellido1,apellido2){
+
+				//comprobamos si hay espacio en el nombre
+				if(nombre.indexOf(' ')>-1){
+
+					//buscar el espacio y guardamos su posición
+					var espacio = nombre.search(' ');
+
+					nombre = nombre[0].toUpperCase()+nombre.slice(1, espacio).toLowerCase()+' '+ nombre[espacio+1].toUpperCase()+nombre.slice(espacio+2).toLowerCase();
+
+					
+
+				}else{
+					nombre = nombre[0].toUpperCase()+nombre.slice(1);
+				}
+
+				resultado.innerHTML = apellido1 + ' '+ apellido2 + ', '+ nombre +'.';
+			}
+
+			
+		</script>
+	</body>
+</html>
+

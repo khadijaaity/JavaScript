@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS03 Exercici 9</title>
+		<style type="text/css">
+
+			:root{
+				font-family: cambria;
+			}
+
+			body{
+				display: flex;
+				margin-top: 5%;
+			}
+
+			section{
+				margin-left: 5%;
+				flex: 1;
+				background-color: rgba(0,0,0,0.1);
+				text-align: center;
+				position: relative;
+				padding-bottom: 4%;
+			}
+
+			section figure{
+				width: 15%;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+
+			section figure img{
+				width: 100%;
+			}
+
+			figure{
+				flex: 1;
+			}
+
+			h2{
+				background-color: rgb(0,0,0);
+				color: #fff;
+				width: 100%;
+				margin: 0;
+				padding: 1% 0;
+				margin-bottom: 5%;
+			}
+
+			input{
+				padding: 1%;
+				border: 1px solid grey;
+				border-radius: 5px;
+				text-align: center;
+			}
+
+			button{
+				margin-top: 2%;
+				padding: 1% 2%;
+				background-color: #000;
+				color: #fff;
+				font-weight: bolder;
+				border-radius: 5px;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 150px;
+				margin-top: 1%;
+				text-align: right;
+				margin-bottom: 2%;
+				margin-right: 2%;
+			}
+
+			output{
+				margin-top: 3%;
+				margin-left: 5%;
+				color: #00f;
+				font-weight: bold;
+				font-size: 1.5em;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<section>
+			<h2>Calcular el coste/consumo de un coche por ciudad y carretera</h2>
+
+			<label>Km por Ciudad:</label>
+			<input type="number" id="kilometros_Ci"/><br/>
+
+			<label>Km por Carretera:</label>
+			<input type="number" id="kilometros_Ca"/><br/>
+
+			<label>Consumo Ciudad:</label>
+			<input type="number" id="consumoCiudad"/><br/>
+
+			<label>Consumo Carretera:</label>
+			<input type="number" id="consumoCarretera"/><br/>
+
+			<label>Precio Combustible:</label>
+			<input type="number" id="precio_com"/><br/>
+			
+			<button onclick="calcular();">Calcular</button>
+
+			<hr/><br/>
+			<output id="resultado"></output>
+
+			<figure>
+				<img src="img/indicador.png" alt="indicador" title="indicador" />
+			</figure>
+		</section>
+
+		<figure>
+			<img src="img/coche.png" alt="coche" title="coche" />
+		</figure>
+		
+		<script>
+
+			function calcular(){
+				var kmCiudad = parseInt(document.getElementById('kilometros_Ci').value);
+
+				var kmCarretera = parseInt(document.getElementById('kilometros_Ca').value);
+				
+				var consumCiudad = parseFloat(document.getElementById('consumoCiudad').value);
+				
+				var consumCarretera = parseFloat(document.getElementById('consumoCarretera').value);
+
+				var precio = parseFloat(document.getElementById('precio_com').value);
+
+
+
+				var precioCiudad = (kmCiudad/100)*consumCiudad*precio;
+
+				var precioCarretera = (kmCarretera/100)*consumCarretera*precio;
+
+				resultado.innerHTML = 'El importe total es: '+parseFloat(precioCiudad+precioCarretera).toFixed(2) +' €';
+			}
+
+		</script>
+	</body>
+</html>

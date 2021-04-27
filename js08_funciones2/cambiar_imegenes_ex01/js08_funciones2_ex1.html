@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS08 exercici 1</title>
+		<style type="text/css">
+			img{
+				width: 300px;
+				height: 400px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="img/goku1.png" alt="goku1" title="goku1"  onclick="transformar(this);" />
+		
+		<script type="text/javascript">
+			var i = 1;
+
+			function transformar(goku){
+
+				switch(i){
+					case 1: goku.src = 'img/goku2.png';
+					goku.alt ='goku2';
+					goku.title ='goku2';
+					i++;
+					break;
+
+					case 2: goku.src = 'img/goku3.png';
+					goku.alt ='goku3';
+					goku.title ='goku3';
+					i++;
+					break;
+
+					case 3: goku.src = 'img/goku4.png';
+					goku.alt ='goku4';
+					goku.title ='goku4';
+					i++;
+					break;
+
+					default: goku.src = 'img/goku1.png';
+					goku.alt ='goku1';
+					goku.title ='goku1';
+					i=1;
+				}
+				
+			}
+
+		</script>
+	
+	</body>
+</html>
+

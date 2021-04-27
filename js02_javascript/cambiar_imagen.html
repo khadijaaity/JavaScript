@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Ejemplo 64: Recuperando Objetos</title>
+	</head>
+
+	<body>
+		<!--Recuperaremos y manipularemos esta imagen desde JS-->
+		<img src="img/patata.png" alt="una patata!" id="potatoe">
+
+		<script>
+			//recuperar la imagen mediante el DOM
+			var kartoffel = document.getElementById('potatoe');
+
+			//imprimir la ruta
+			document.write('<p>'+kartoffel.src+'</p>');
+
+			//ajustar el ancho
+			kartoffel.width = '200';
+
+			//modificar su css
+			kartoffel.style.border = '3px solid orange';
+
+			kartoffel.style.backgroundColor = 'rgba(255,255,0,0.2)';
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>js19 DOM3 ex03</title>
+		<style type="text/css">
+			*{
+				font-family: cambria;
+			}
+			figure{
+				width: 20%;
+				display: inline-block;
+				
+			}
+			img{
+				width: 100%;
+			}
+			section{
+				margin: auto;
+				text-align: center;
+			}
+			#grande{
+				position: fixed;
+				text-align: center;
+				width: 100%;
+				height: 100%;
+				top: 0px;
+				left: 0px;
+				margin: 0;	
+			}
+			#grande img{
+				width: 30%;
+				margin: 5em auto 1em auto;
+			}
+		</style>
+	<body>
+		<section>
+			<figure onclick="grande(this);">
+				<img src="img/barcelona.jpg" alt="Barcelona" title="Barcelona" data-lugar="Barcelona" data-fecha="01/01/2021"/>
+			</figure>
+
+			<figure onclick="grande(this);">
+				<img src="img/paris.jpg" alt="París" title="París" data-lugar="París" data-fecha="02/02/2021"/>
+			</figure>
+
+			<figure onclick="grande(this);">
+				<img src="img/berlin.jpg" alt="Berlín" title="Berlín" data-lugar="Berlín" data-fecha="03/03/2021"/>
+			</figure>
+
+			<figure onclick="grande(this);">
+				<img src="img/nova_york.jpg" alt="Nova York" title="Nova York" data-lugar="Nova York" data-fecha="04/04/2021"/>
+			</figure>
+
+			<figure onclick="grande(this);">
+				<img src="img/dubai.jpg" alt="Dubai" title="Dubai" data-lugar="Dubai" data-fecha="05/05/2021"/>
+			</figure>
+
+			<figure onclick="grande(this);">
+				<img src="img/tokio.jpg" alt="Tokio" title="Tokio" data-lugar="Tokio" data-fecha="06/06/2021"/>
+			</figure>
+		</section>
+		
+		<script type="text/javascript">
+
+			function grande(figura){
+				
+				var figuraGrande = document.createElement('figure');
+				figuraGrande.style.backgroundColor = 'rgba(0,0,0,0.7)';
+				figuraGrande.setAttribute('id','grande');
+	
+				figuraGrande.onclick = function(){
+					this.remove();
+				}
+
+				var imagen = document.createElement('img');
+				imagen.setAttribute('src', figura.firstElementChild.src);
+				
+				figuraGrande.appendChild(imagen);
+				figuraGrande.appendChild(imagen).style.border = '2px solid #fff';
+				
+
+				var leyenda = document.createElement('figcaption');
+				var lugar = figura.firstElementChild.dataset.lugar;
+				var fecha = figura.firstElementChild.dataset.fecha;
+				leyenda.innerHTML = lugar.toUpperCase()+' ('+fecha+').';
+
+				figuraGrande.appendChild(leyenda);
+				figuraGrande.appendChild(leyenda).style.color = '#fff';
+				figuraGrande.appendChild(leyenda).style.fontSize = '1.5em';
+
+				document.body.appendChild(figuraGrande);
+			}
+		</script>
+		
+	</body>
+</html>

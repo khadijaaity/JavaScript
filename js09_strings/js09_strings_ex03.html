@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS09 Strings exercici 3</title>
+		<style type="text/css">
+			body{
+				font-family: arial;
+				margin: auto;
+				width: 95%;
+			}
+
+			button{
+				padding: 1.5%;
+				background-color: rgba(255,0,0,0.2);;
+				border-radius: 5px;
+				border: 1px solid #000;
+				font-weight: bold;
+			}
+
+			section{
+				width: 50%;
+				background-color: rgba(255,0,0,0.1);
+				margin: 10px;
+				padding: 2%;
+				height: 300px;
+			}
+
+			input{
+				padding: 1%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 100px;
+				padding-bottom: 2%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<h2>Encreptar Y desencriptar</h2>
+
+			<label>Texto a encriptar:</label>
+			<input type="text" id="intexto"/><br/><br/>
+
+			<button onclick="encriptar(intexto.value);">Encriptar</button>
+
+			<button onclick="desencriptar(intexto.value);">Desencriptar</button>
+			<br/><hr/>
+
+			<!-- <output id="resultado"></output> -->
+		</section>
+
+		
+
+		<script type="text/javascript">
+			function encriptar(texto){
+
+				var resultado = '';
+
+				for (let i = 0; i < texto.length; i++) {
+					resultado += String.fromCharCode(texto.charCodeAt(i)+1);
+				}
+
+				document.getElementById('intexto').value = resultado;
+
+			
+				
+			}
+
+			function desencriptar(texto){
+
+				var resultado = '';
+
+				for (let i = 0; i < texto.length; i++) {
+					resultado += String.fromCharCode(texto.charCodeAt(i)-1);
+				}
+
+				document.getElementById('intexto').value = resultado;
+
+			}
+
+
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="author" content="khadija ait" />
+		<title>JS10 DATES ex02</title>
+		<style type="text/css">
+			div{
+				background-color: #000;
+				width: 200px;
+				height: 200px;
+				margin: auto;
+				color: #fff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				align-content: center;
+				font-size: 2em;
+			}
+			span{
+				margin: auto;				
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<span id="horas">00</span>:
+			<span id="minutos">00</span>:
+			<span id="segundos">00</span>
+		</div>
+		
+	<script type="text/javascript">
+		var fin = new Date();
+		fin.setHours(20,0,0,0);
+
+		function calcular(){
+			var ahora = new Date();
+			var seg = parseInt((fin-ahora)/100);
+
+			var segundos = seg%60; //calcular segundos
+			var minutos = parseInt(seg/60)%60; //calcular minutos
+			var horas = parseInt(seg/3600)%24; //calcular horas
+
+			if(segundos<10) segundos = '0'+segundos;
+			if(minutos<10) minutos = '0'+minutos;
+			if(horas<10) horas = '0'+horas;
+
+			document.getElementById('segundos').innerHTML = segundos;
+			document.getElementById('minutos').innerHTML = minutos;
+			document.getElementById('horas').innerHTML = horas;
+		}
+		setInterval(calcular,500);
+	</script>
+		
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>js17 DOM ex03</title>
+	</head>
+
+	<body>
+		<h1>CATS!</h1>
+		<img src="img/cats.jpg" alt="CATS" title="CATS" width="150px" />
+		<p>So cute!</p>
+		<ul>
+			<li>Lizzie</li>
+			<li>Daemon</li>
+		</ul>
+		<button onclick="cambiar();">cambiar</button>
+
+
+		<script type="text/javascript">
+			function cambiar(){
+
+				// var titulo  = document.firstElementChild.lastElementChild.firstElementChild;
+				// titulo.innerHTML ='Bella y Bestia';
+
+				document.body.firstElementChild.innerHTML = 'Bella y Bestia!';
+
+				// document.querySelector('h1').innerHTML = 'Bella y Bestia'
+
+				var azul = document.getElementsByTagName('li');
+				for(let list of azul){
+					list.style.color ='#00F';
+				} 
+
+				// for(let imagen of document.images)
+				// // var imag = document.images;
+				// imagen.src = 'img/bella.jpg';
+				// imagen.alt = 'bella y bestia';
+				// imagen.title = 'Bella y Bestia';
+				
+				document.images[0].src = 'img/bella.jpg';
+				document.images[0].title = 'bella y bestia';
+				document.images[0].alt = 'bella y bestia';
+				
+			}
+		</script>
+	</body>
+</html>

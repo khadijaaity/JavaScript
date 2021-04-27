@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>JS04 Exercici 1</title>
+		<style type="text/css">
+
+			:root{
+				font-family: cambria;
+			}
+
+			body{
+				margin: 5%;
+			}
+
+			label{
+				display: inline-block;
+				min-width: 110px;
+				margin-bottom: 5px;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<h2>Calculador de IVA</h2>
+
+		<label>Precio:</label>
+		<input type="number" min="0" id="precio"/><br/>
+
+		<label>IVA:</label>
+		<select id="iva">
+			<option value="1.21">Normal (21%)</option>
+			<option value="1.1">Reducido (10%)</option>
+			<option value="1.04">Super reducido (4%)</option>
+		</select><br/>
+
+		
+		<button type="button" onclick="calcular();">Calcular</button><br/>
+
+		<hr/><br/>
+		<span>El precio final es: </span><output id="resultado"></output>
+		
+		<script>
+
+			function calcular(){	
+
+				//leer el precio e IVA introducidos por el usuario			
+				var precio = parseFloat(document.getElementById('precio').value);
+				
+				var iva = parseFloat(document.getElementById('iva').value);
+
+				//realizar los cálculos
+				precio*=iva;
+
+				//mostrar el resultado
+				document.getElementById('resultado').innerHTML = precio.toFixed(2) +' €';
+			}
+
+		</script>
+	</body>
+</html>
